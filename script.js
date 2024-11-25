@@ -1,21 +1,43 @@
-const testHTML = document.getElementById("sortileges");
+const spellElement = document.getElementById("sortileges");
 
-async function spellsJSON() {
-  const response = await fetch("./spells.json");
-  const data = await response.json();
- 
-  testHTML.innerHTML +=
-    `${data[2].name} 
-    ${data[5].name } 
-    ${data[11].name} 
-    ${data[25].name} 
-    ${data[32].name} 
-    ${data[46].name} 
-    ${data[50].name} 
-    ${data[61].name} 
-    ${data[30].name} 
-    ${data[41].name}`
-  
+//changement couleur de la page du noir au plus clair
+function changeColor() {
+  document.body.style.backgroundColor = "white";
+  document.querySelector('h1').style.color ='black'
 }
+document.addEventListener("click", changeColor);
 
-spellsJSON();
+//faire apparaitre les sorts en fonction du temps
+async function fetchSpells() {
+  try {
+    const response = await fetch("./spells.json");
+    const data = await response.json();
+
+    // Liste des index à afficher
+    const spellIndexes = [2, 5, 11, 25, 32, 46, 50, 61, 30, 41];
+    let currentIndex = 0;
+
+    // Fonction pour afficher un sort
+    function afficherSpell() {
+      if (currentIndex < spellIndexes.length) {
+        const index = spellIndexes[currentIndex];
+        const spell = data[index];
+
+        // ajouter le sort a HTML
+        spellElement.innerHTML += ` ${spell.name} <br>`;
+
+        currentIndex++;
+      } else {
+        // Arrêter l'intervalle quand tous les sorts sont affichés
+        clearInterval(intervalId);
+      }
+    }
+
+    // Démarrer l'affichage des sorts
+    const intervalId = setInterval(afficherSpell, 5000);
+  } catch (error) {
+    console.error("Erreur lors du chargement des sorts:", error);
+    spellElement.innerHTML = "Erreur lors du chargement des données";
+  }
+}
+fetchSpells();

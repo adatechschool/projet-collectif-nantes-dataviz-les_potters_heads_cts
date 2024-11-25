@@ -4,10 +4,19 @@
   box-sizing: border-box;
   border: none;
   outline: none;
+  text-align: center;
 }
 
 
 body {
-  background-color: #070F2B;
-  color: #9290C3;
+  background-color: #070F2B; 
+  color: white;
+}
+
+p{
+  text-align: center;
+  font-family: cursive;
+  font-size: 0.8cm;
+  margin-top: 40px;
+  color: black;
 }
