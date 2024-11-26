@@ -3,7 +3,7 @@ const spellElement = document.getElementById("sortileges");
 //changement couleur de la page du noir au plus clair
 function changeColor() {
   document.body.style.backgroundColor = "white";
-  document.querySelector('h1').style.color ='black'
+  document.querySelector("h1").style.color = "black";
 }
 document.addEventListener("click", changeColor);
 
@@ -18,7 +18,7 @@ async function fetchSpells() {
     let currentIndex = 0;
 
     // Fonction pour afficher un sort
-    function afficherSpell() {
+    function afficherSpells() {
       if (currentIndex < spellIndexes.length) {
         const index = spellIndexes[currentIndex];
         const spell = data[index];
@@ -27,17 +27,15 @@ async function fetchSpells() {
         spellElement.innerHTML += ` ${spell.name} <br>`;
 
         currentIndex++;
-      } else {
-        // Arrêter l'intervalle quand tous les sorts sont affichés
-        clearInterval(intervalId);
+        afficherSpells();
       }
+      
     }
-
-    // Démarrer l'affichage des sorts
-    const intervalId = setInterval(afficherSpell, 5000);
+    afficherSpells();
   } catch (error) {
     console.error("Erreur lors du chargement des sorts:", error);
     spellElement.innerHTML = "Erreur lors du chargement des données";
   }
+  
 }
 fetchSpells();
