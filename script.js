@@ -14,7 +14,7 @@ async function fetchSpells() {
     const data = await response.json();
 
     // Liste des index à afficher
-    const spellIndexes = [2, 5, 11, 25, 32, 46, 21, 61, 30, 41];
+    const spellIndexes = [2, 5, 11, 25, 32, 46, 50, 61, 30, 41];
     let currentIndex = 0;
 
     // Fonction pour afficher un sort
