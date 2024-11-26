@@ -38,7 +38,6 @@ async function fetchSpells() {
   }
   
 }
-<<<<<<< HEAD
 
 spellsJSON();
 
@@ -58,6 +57,3 @@ function showDate() {
  }
  showDate()
  setInterval(showDate, 1000);//setInterval mai à jour la function showDate()tous les seconds
-=======
-fetchSpells();
->>>>>>> 2085700a9f0114484fda46f355fb25e22e4a1c1c
