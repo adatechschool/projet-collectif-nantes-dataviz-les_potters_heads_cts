@@ -1,4 +1,5 @@
 const spellElement = document.getElementById("sortileges");
+const container = document.getElementById("container"); 
 
 //changement couleur de la page du noir au plus clair
 function changeColor() {
@@ -39,7 +40,7 @@ async function fetchSpells() {
   
 }
 
-spellsJSON();
+fetchSpells();
 
 
 
@@ -57,3 +58,32 @@ function showDate() {
  }
  showDate()
  setInterval(showDate, 1000);//setInterval mai à jour la function showDate()tous les seconds
+
+ function dupliquerObjets(){
+  //dupliquerDesObjects
+
+for (let i = 0; i < 1; i++) {
+    const img = document.createElement("img");
+    img.src ="./images/bougie.png"
+    img.alt = "bougie";
+    img.classList.add("bougie");
+    img.classList.add("bougie-dupplique")
+    container.appendChild(img);
+  }
+}
+
+document.getElementById("Geminio").addEventListener("mouseover", dupliquerObjets)
+
+document.getElementById("Geminio").addEventListener('mouseout', () => {
+
+  const bougies = document.querySelectorAll(".bougie-dupplique"); // Récupère tous les éléments correspondants
+
+  bougies.forEach((bougie) => {
+    if (container.contains(bougie)) {
+        container.removeChild(bougie); // Suppression des éléments
+    }
+});
+
+  
+});
+
