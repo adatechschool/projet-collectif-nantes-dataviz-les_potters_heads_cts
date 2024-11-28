@@ -1,6 +1,18 @@
 const spellElement = document.getElementById("sortileges");
+const Geminiobutton = document.getElementById('Geminio')
+const geminioDescription=document.getElementById('duplicatesObject')
+const ApareciumDescription=document.getElementById('messagesSecrets')
+const reducioDescription=document.getElementById('reduireObjects')
+const AguamentiDescription=document.getElementById('SummonsWater')
+const BombardoDescription=document.getElementById('CreateExplosion')
+const EvanescoDescription=document.getElementById('VanishesObjects')
+const LumoDescription=document.getElementById('allumerLumière')
+const FiniteIncantatemDescription=document.getElementById('stopSorts')
+const IncendioDescription=document.getElementById('ConjuresFlames')
+const NoxDescription=document.getElementById('éteindreLumière')
 
-//changement couleur de la page du noir au plus clair
+
+
 function changeColor() {
   document.body.style.backgroundColor = "white";
   document.querySelector("h1").style.color = "black";
@@ -12,23 +24,8 @@ async function fetchSpells() {
   try {
     const response = await fetch("./spells.json");
     const data = await response.json();
-
-    // Liste des index à afficher
-    const spellIndexes = [2, 5, 11, 25, 32, 46, 50, 61, 30, 41];
-    let currentIndex = 0;
-
-    // Fonction pour afficher un sort
-    function afficherSpells() {
-      if (currentIndex < spellIndexes.length) {
-        const index = spellIndexes[currentIndex];
-        const spell = data[index];
-
-        // ajouter le sort a HTML
-        spellElement.innerHTML += ` ${spell.name} <br>`;
-
-        currentIndex++;
-        afficherSpells();
-      }
+    Geminiobutton.innerHTML=data
+    
       
     }
     afficherSpells();
@@ -37,13 +34,13 @@ async function fetchSpells() {
     spellElement.innerHTML = "Erreur lors du chargement des données";
   }
   
-}
-
-spellsJSON();
 
 
+fetchSpells();
 
-function showDate() {
+
+
+function showDate() {//fonction pour récupere la date 
     let date =new Date()
     //let h = date.getHours();
     let m = date.getMinutes();
@@ -57,3 +54,56 @@ function showDate() {
  }
  showDate()
  setInterval(showDate, 1000);//setInterval mai à jour la function showDate()tous les seconds
+
+ 
+ function dupliquerObjets(){
+  //upliquerDesObjects
+
+for (let i = 0; i < 1; i++) {
+    const img = document.createElement("img");
+    img.src ="./images/bougie.png"
+    img.alt = "bougie";
+    img.classList.add("bougie");
+    container.appendChild(img);
+
+  }
+}
+//dupliquerObjets()
+console.log(document.getElementById("Geminio").addEventListener("mouseover", dupliquerObjets))
+
+apparaîtreMessage.innerHTML += ` ${spell.descpriton}`;
+apparaîtreMessage.addEventListener("click", () => {
+  console.log(apparaîtreMessage)
+  if(apparaîtreMessage.style.display != "none"){
+    apparaîtreMessage.style.display = "none";
+  } else {
+    apparaîtreMessage.style.display = "block";
+  }
+})
+
+
+// document.getElementById("Aparecium").addEventListener(
+//   "click",
+//   function afficherMessagesecrets () {
+//     document.getElementById("").hidden = true;
+//     document.getElementById("impressionnant").hidden = false;
+//   },
+//   false,
+// );
+                         
+  
+
+ 
+ 
+//const apparaitreMessage = document.getElementById('apparaîtreMessage');
+
+// apparaîtreMessage.innerHTML += data[index];
+// document.querySelectorAll(section).style.display='spellIndexes'
+// apparaîtreMessage.addEventListener("click", () => {
+  
+//   if (apparaîtreMessage.style.display !== "none") {
+//     apparaîtreMessage.style.display = "none";
+//   } else {
+//     apparaîtreMessage.style.display = "block";
+//   }
+// });
