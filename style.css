@@ -23,6 +23,7 @@ body {
   width: 100vw;
   height: 100vh; /* Ajuste à la taille de la fenêtre */
   overflow: hidden; /* Cache tout débordement */
+  overflow: auto;
   padding: 2vh 2vw;
   gap: 20px;
 }
@@ -248,6 +249,7 @@ img {
 #chaudron {
   grid-column: 2; /* 2ème colonne */
   grid-row: 1; /* 1ère ligne */
+  transition: all 0.5s ease; /* Transition fluide */
 }
 
 #Incendio {
@@ -335,4 +337,8 @@ footer {
 }
 .bougie{
   height: 150px;
+}
+
+.cauldron {
+  height: 300px;
 }
