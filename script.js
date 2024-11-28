@@ -3,6 +3,18 @@ const AguamentiBtn = document.getElementById("Aguamenti");
 const BombardoBtn = document.getElementById("Bombardo");
 const IncendioBtn = document.getElementById("Incendio");
 const backgroundInondation = document.getElementById("background-inondation");
+const container = document.getElementById("container");
+const Geminiobutton = document.getElementById('Geminio')
+const geminioDescription=document.getElementById('duplicatesObject')
+const ApareciumDescription=document.getElementById('messagesSecrets')
+const reducioDescription=document.getElementById('reduireObjects')
+const AguamentiDescription=document.getElementById('SummonsWater')
+const BombardoDescription=document.getElementById('CreateExplosion')
+const EvanescoDescription=document.getElementById('VanishesObjects')
+const LumoDescription=document.getElementById('allumerLumière')
+const FiniteIncantatemDescription=document.getElementById('stopSorts')
+const IncendioDescription=document.getElementById('ConjuresFlames')
+const EngorgioDescription=document.getElementById('agrandirObjects')
 
 //ajout horloge
 function showDate() {
@@ -23,9 +35,9 @@ function showDate() {
 }
 showDate();
 setInterval(showDate, 1000); //setInterval mai à jour la function showDate()tous les seconds
-const container = document.getElementById("container");
 
-//changement couleur de la page du noir au plus clair
+
+
 function changeColor() {
     document.body.style.backgroundColor = "#282F44";
     document.querySelector("h1").style.color = "black";
@@ -41,11 +53,17 @@ async function fetchSpells() {
     AguamentiBtn.innerHTML = `${data[2].name}`;
     BombardoBtn.innerHTML = `${data[11].name}`;
     IncendioBtn.innerHTML = `${data[41].name}`;
-  } catch (error) {
+    Geminiobutton.innerHTML=data
+    
+      
+    }
+   
+   catch (error) {
     console.error("Erreur lors du chargement des sorts:", error);
     spellElement.innerHTML = "Erreur lors du chargement des données";
   }
 }
+
 
 fetchSpells();
 
@@ -132,3 +150,31 @@ document.getElementById("Geminio").addEventListener("mouseout", () => {
     }
   });
 });
+
+ 
+
+
+// apparaîtreMessage.innerHTML += ` ${spell.descpriton}`;
+// apparaîtreMessage.addEventListener("click", () => {
+//   console.log(apparaîtreMessage)
+//   if(apparaîtreMessage.style.display != "none"){
+//     apparaîtreMessage.style.display = "none";
+//   } else {
+//     apparaîtreMessage.style.display = "block";
+//   }
+// })
+
+
+// document.getElementById("Aparecium").addEventListener(
+//   "click",
+//   function afficherMessagesecrets () {
+//     document.getElementById("").hidden = true;
+//     document.getElementById("impressionnant").hidden = false;
+//   },
+//   false,
+// );
+                         
+  
+
+ 
+ 

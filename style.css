@@ -334,3 +334,6 @@ footer {
   display: flex;
   justify-content: left;
 }
+.bougie{
+  height: 150px;
+}
