@@ -151,30 +151,22 @@ document.getElementById("Geminio").addEventListener("mouseout", () => {
   });
 });
 
- 
+
+//fonction pour faire grossir l'objet
+function growObject () {
+  const growth = document.getElementById('chaudron')
+    growth.classList.add("cauldron")
+  }
+
+document.getElementById("Engorgio").addEventListener("mouseover", growObject);
+
+//fonction pour remettre à la bonne taille l'objet
+function shrinkObject() {
+  const growth = document.getElementById("chaudron");
+  growth.classList.remove("cauldron"); // Supprime la classe pour revenir à l'état initial
+}
 
 
-// apparaîtreMessage.innerHTML += ` ${spell.descpriton}`;
-// apparaîtreMessage.addEventListener("click", () => {
-//   console.log(apparaîtreMessage)
-//   if(apparaîtreMessage.style.display != "none"){
-//     apparaîtreMessage.style.display = "none";
-//   } else {
-//     apparaîtreMessage.style.display = "block";
-//   }
-// })
-
-
-// document.getElementById("Aparecium").addEventListener(
-//   "click",
-//   function afficherMessagesecrets () {
-//     document.getElementById("").hidden = true;
-//     document.getElementById("impressionnant").hidden = false;
-//   },
-//   false,
-// );
-                         
-  
-
+document.getElementById("Engorgio").addEventListener("mouseout", shrinkObject);
  
  
