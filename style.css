@@ -4,15 +4,178 @@
   box-sizing: border-box;
   border: none;
   outline: none;
-  text-align: center;
 }
-
 
 body {
-  background-color: #070F2B;
-  color: #9290C3;
+  background-color: #070f2b;
+  color: #9290c3;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
-.horloge{
-  background-color:#1C1C1C;color:silver;font-size:40px;
+.horloge {
+  background-color: #1c1c1c;
+  color: silver;
+  font-size: 100px;
+}
+.container {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#Aguamenti {
+  position: absolute;
+  color: gold;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  background: #070f2b;
+  border-radius: 50%;
+}
 
+#background-inondation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(106, 230, 244);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 3s ease-in-out;
+  z-index: 5;
+}
+#background-inondation.inondation {
+  transform: scaleY(1);
+}
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: rgba(81, 203, 238, 0.5);
+  animation: wave 3s infinite alternate;
+}
+@keyframes wave {
+  0% {
+    transform: scaleX(0.9);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scaleX(1.1);
+    opacity: 0.8;
+  }
+}
+
+#Bombardo {
+  position: absolute;
+  top: 17%;
+  left: 50%;
+  color: gold;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: #070f2b;
+  border-radius: 50%;
+}
+.explosion {
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  translate:(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 165, 0, 1) 0%,
+    rgba(255, 69, 0, 1) 50%,
+    rgba(139, 0, 0, 0.5) 100%
+  );
+  border-radius: 50%;
+  transform: scale(0);
+  animation: explode 0.7s ease-out;
+  z-index: 10;
+}
+@keyframes explode {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 2;
+  }
+  100% {
+    transform: scale(8);
+    opacity: 0;
+  }
+}
+#Incendio {
+  top: 85%;               /* Position verticale du bouton */
+  left: 50%;              /* Centrer horizontalement */
+  transform: translate(-50%, -50%);  /* Centrer le bouton par rapport à son propre centre */
+  color: gold;            /* Couleur du texte */
+  display: flex;          /* Utilisation de flexbox pour aligner le texte au centre */
+  justify-content: center; 
+  align-items: center;
+  position: absolute;     /* Absolu pour le placer à une position spécifique */
+  width: 100px;           /* Largeur du bouton */
+  height: 100px;          /* Hauteur du bouton */
+  background: #070f2b;    /* Couleur de fond */
+  border-radius: 50%;     /* Rendre le bouton circulaire */
+  font-weight: bold;      /* Mettre le texte en gras */
+  text-align: center;     /* Centrer le texte */
+}
+/* Variables pour l'animation du feu */
+:root {
+  --fire-color: rgb(255, 80, 0);
+  --fire-color-t: rgba(255, 80, 0, 0);
+  --dur: 1s;
+  --blur: 0.02em;
+  --fire-rad: 3em;
+  --parts: 50;
+  --part-size: 5em;
+}
+
+#fire {
+  font-size: 60px;
+  filter: blur(var(--blur));
+  -webkit-filter: blur(var(--blur));
+  margin: 3em auto 0 auto;
+  position: relative;
+  width: 10em;
+  height: 12em;
+  background: none;
+}
+
+.particule {
+  animation: rise var(--dur) ease-in infinite;
+  background-image: radial-gradient(var(--fire-color) 20%, var(--fire-color-t) 70%);
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  opacity: 0;
+  position: absolute;
+  bottom: 0;
+  width: var(--part-size);
+  height: var(--part-size);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(0) scale(1);
+  }
+  25% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10em) scale(0);
+  }
 }
