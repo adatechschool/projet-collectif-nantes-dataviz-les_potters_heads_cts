@@ -3,30 +3,67 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Les Potters Heads</title>
+    <title>POC</title>
     <script defer src="script.js" type="module"></script>
-    <script src="spells.json"></script>
+    <!-- <script src="spells.json"></script> -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <p id="sortileges"></p>
-    <div id="horloge">
-      <div class="minutes"></div>
-      <div class="secondes"></div>
-    </div>
+    <header>
+      <h1>Harry Potter Spells</h1>
+      <div id="horloge">
+        <div class="minutes"></div>
+        <div class="secondes"></div>
+      </div>
+    </header>
 
-    
-    <!-- <img src="./images/bougie.png" alt="bougie" id="bougie"> -->
-    <!-- <img src="./images/livre.png" alt="livre" id="livre"> -->
+    <main>
+     
+      <section id="fire"></section>
+      <section id="boutons-sorts">
+        <button id="Reducio" class="buttons">Reducio</button>
+        <p></p>
+        <img
+          src="./images/chaudron.png"
+          alt="chaudron-magique"
+          id="chaudron"
+          class="buttons"
+        />
+        <button id="Incendio" class="buttons">Incendio</button>
+        <p></p>
+        <img src="./images/livre.png" alt="livre" id="livre" class="buttons" />
+        <button id="Engorgio" class="buttons">Engorgio</button>
+        <p></p>
+        <button id="Lumos" class="buttons">Lumos</button>
+        <p></p>
+        <button id="Bombardo" class="buttons">Bombardo</button>
+        <p></p>
+        <button id="Aparecium" class="buttons">Aparecium</button>
+        <p></p>
+        <button id="Aguamenti" class="buttons">Aguamenti</button>
+        <p></p>
+        <button id="Geminio" class="buttons">Geminio</button>
+        <p></p>
+        <button id="Finite-incantatem" class="buttons">
+          Finite Incantatem
+        </button>
+        <p></p>
+        <img src="./images/bougie.png" alt="bougie" id="bougie" />
+        <button id="Evanesco" class="buttons">Evanesco</button>
+        <p></p>
+      </section>
+      <section id="container"></section>
+      <section id="wave"></section>
+      <section id="background-inondation"></section>
+      
+    </main>
 
-    <section class="container">
-      <button id="Aguamenti"></button>
-      <button id="Bombardo"></button>
-      <button id="Incendio"></button>
-      <!-- <img src="./images/baguette-magique.svg" alt="baguette-magique" id="baguette-magique"> -->
-    </section>
-    <section id="wave"></section>
-    <section id="background-inondation"></section>
-    <section id="fire"></section>
+    <footer>
+      <img
+        src="https://fontmeme.com/permalink/241126/141557acf78353da9c1974153942dd69.png"
+        alt="logo-harry-potter"
+        id="logo-harry-potter"
+      />
+    </footer>
   </body>
 </html>
