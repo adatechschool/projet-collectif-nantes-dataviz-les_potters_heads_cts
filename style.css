@@ -1,12 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Borel&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Borel&display=swap");
 @font-face {
-  font-family: 'HARRYP';
-  src: url('./police/HARRYP__.TTF') format('ttf'),
-       url('police/HARRYP__.TTF') format('truetype');
+  font-family: "HARRYP";
+  src: url("./police/HARRYP__.TTF") format("ttf"),
+    url("police/HARRYP__.TTF") format("truetype");
   font-weight: normal; /* ou bold, etc. */
-  font-style: normal;  /* ou italic, etc. */
+  font-style: normal; /* ou italic, etc. */
 }
-
 
 * {
   margin: 0;
@@ -17,6 +16,9 @@
   text-align: center;
 }
 
+html {
+  max-width: 100vw;
+}
 
 .borel-regular {
   font-family: "Borel", cursive;
@@ -25,20 +27,48 @@
 }
 
 body {
-  background-color: #070F2B;
+  background-color: #070f2b;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 2vh 2vw;
+  gap: 20px;
 }
 
 body.borel-regular {
-  color: #9290C3;
+  color: #ececec;
 }
-.horloge{
-  background-color:#1C1C1C;color:silver;font-size:40px;
 
+header {
+  display: flex;
+  justify-content: space-between; /* Distribue les éléments */
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+}
+
+header,
+h1 {
+  margin: 0;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
-  color :#9290C3;
+  color: #ececec !important;
   font-family: "HARRYP";
+  font-size: 50px;
+  display: flex;
+  flex: 1;
+  justify-content: center;
 }
 
 .bougie {
@@ -46,31 +76,142 @@ h1 {
 }
 
 .bougie-dupplique {
-height: 150px;
-}
-
-#container {
-  width: 50vh; /* Ajustez selon vos besoins */
-  height: 20vh; /* Ajustez selon vos besoins */
-  overflow: hidden; /* Empêche les débordements */
-}
-
-
-#bougie {
   height: 150px;
 }
 
+#container {
+  height: 25vh;
+  width: 25vh;
+  overflow: hidden; /* Empêche les débordements */
+  padding: 10px;
+}
+
+#boutons-sorts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 colonnes de largeur égale */
+  grid-auto-rows: 27%; /* Hauteur des lignes automatique */
+  gap: 1rem; /* Espacement entre les éléments */
+  width: 100%;
+  justify-items: center; /* Centre horizontalement les éléments */
+  align-items: center; /* Centre verticalement les éléments */
+}
+
 button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
-  border: none;
+  width: 12vw; /* Les boutons s'ajustent à la cellule */
+  background-color: #282f44;
+  color: #ececec;
+  border: 1px solid #e6af2e;
   border-radius: 15px;
+  font-family: "HARRYP";
+  font-size: 30px;
+  text-align: center;
+  padding: 0.5rem;
   cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s;
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #353e5a;
+}
+
+img {
+  height: 150px; /* Taille maximale des images */
+}
+
+#logo-harry-potter {
+  height: 50px;
+}
+
+/* Ajout de styles spécifiques pour le positionnement */
+#Reducio {
+  grid-column: 1; /* 1ère colonne */
+  grid-row: 1; /* 1ère ligne */
+}
+
+#chaudron {
+  grid-column: 2; /* 2ème colonne */
+  grid-row: 1; /* 1ère ligne */
+}
+
+#Incendio {
+  grid-column: 3; /* 3ème colonne */
+  grid-row: 1; /* 1ère ligne */
+}
+
+#livre {
+  grid-column: 4; /* 4ème colonne */
+  grid-row: 1; /* 1ère ligne */
+}
+
+#Engorgio {
+  grid-column: 5; /* 5ème colonne */
+  grid-row: 1; /* 1ère ligne */
+}
+
+#Lumos,
+#Bombardo {
+  grid-row: 2; /* 2ème ligne */
+}
+
+#Lumos {
+  grid-column: 2; /* Centré à gauche */
+}
+
+#Bombardo {
+  grid-column: 4; /* Centré à droite */
+}
+
+#Aparecium,
+#Aguamenti,
+#Geminio {
+  grid-row: 3; /* 3ème ligne */
+}
+
+#Aparecium {
+  grid-column: 1;
+}
+
+#Aguamenti {
+  grid-column: 3;
+}
+
+#Geminio {
+  grid-column: 5;
+}
+
+#Finite-incantatem {
+  grid-row: 4;
+  grid-column: 1;
+}
+
+#bougie {
+  grid-row: 4;
+  grid-column: 3;
+}
+
+#Evanesco {
+  grid-row: 4;
+  grid-column: 5;
+}
+
+footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex: 1;
+  width: 100%;
+}
+
+#logo-harry-potter {
+  width: 150px;
+  height: 50px;
+  display: flex;
+  justify-content: left;
+}
+
+#horloge {
+  color: #ececec;
+  font-family: "borel";
+  font-size: 30px;
+  display: flex;
+  justify-content: left;
 }
