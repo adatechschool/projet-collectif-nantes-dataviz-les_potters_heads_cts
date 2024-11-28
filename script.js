@@ -46,6 +46,7 @@ document.addEventListener("click", changeColor);
 
 //faire apparaitre les sorts en fonction du temps
 async function fetchSpells() {
+  console.log(fetchSpells)
   try {
     const response = await fetch("./spells.json");
     const data = await response.json();
@@ -53,11 +54,10 @@ async function fetchSpells() {
     AguamentiBtn.innerHTML = `${data[2].name}`;
     BombardoBtn.innerHTML = `${data[11].name}`;
     IncendioBtn.innerHTML = `${data[41].name}`;
-    Geminiobutton.innerHTML=data
     
-      
+    
     }
-   
+  
    catch (error) {
     console.error("Erreur lors du chargement des sorts:", error);
     spellElement.innerHTML = "Erreur lors du chargement des données";
@@ -66,7 +66,19 @@ async function fetchSpells() {
 
 
 fetchSpells();
+IncendioBtn.innerHTML = `${data[41].descpriton}`;
+function apparaîtreMessage (data){
+ApareciumDescription.innerHTML = `${data[1].descpriton}`;
+ApareciumDescription.addEventListener("click"), () => {
+  if( ApareciumDescription!== "none"){
+    data[41].name.style.display = "none";
+  } else{
+    data[41].name.style.display == "block";
+  }
+  consol.log(data)
+}
 
+apparaîtreMessage (data)
 // fonction pour inondation suite au click sur Aguamenti button:
 function inondation() {
   AguamentiBtn.addEventListener("mouseover", () => {
@@ -154,7 +166,7 @@ document.getElementById("Geminio").addEventListener("mouseout", () => {
  
 
 
-// apparaîtreMessage.innerHTML += ` ${spell.descpriton}`;
+// apparaîtreMessage.innerHTML += ` ${spell.descpriton}`
 // apparaîtreMessage.addEventListener("click", () => {
 //   console.log(apparaîtreMessage)
 //   if(apparaîtreMessage.style.display != "none"){
