@@ -60,6 +60,10 @@ h1 {
   justify-content: center;
 }
 
+p {
+  display: none;
+}
+
 .horloge {
   background-color: #1c1c1c;
   color: silver;
