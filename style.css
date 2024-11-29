@@ -22,9 +22,9 @@ body {
   align-items: center;
   width: 100vw;
   height: 100vh; /* Ajuste à la taille de la fenêtre */
-  overflow: hidden; /* Cache tout débordement */
+  /* overflow: hidden; */
   overflow: auto;
-  padding: 2vh 2vw;
+  padding: 1vh 1vw;
   gap: 20px;
 }
 
@@ -47,9 +47,10 @@ h1 {
 
 main {
   width: 100%;
-  height: 100%;
   margin: 0;
   padding: 0;
+  overflow: hidden;
+  overflow: auto;
 }
 
 h1 {
@@ -208,8 +209,8 @@ h1 {
 #boutons-sorts {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4 colonnes de largeur égale */
-  grid-auto-rows: 27%; /* Hauteur des lignes automatique */
-  gap: 0.5rem; /* Espacement entre les éléments */
+  /* grid-auto-rows: 27%; */
+  gap: 15px; /* Espacement entre les éléments */
   width: 100%;
   justify-items: center; /* Centre horizontalement les éléments */
   align-items: center; /* Centre verticalement les éléments */
@@ -224,7 +225,7 @@ button {
   font-family: "HARRYP";
   font-size: 30px;
   text-align: center;
-  padding: 0.5rem;
+  padding: 10px;
   cursor: pointer;
 }
 
@@ -350,19 +351,17 @@ footer {
 
 /* Conteneur positionné */
 #lumos-container {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden; 
   border-radius: 50%;
-  opacity: 0;
 }
 
 #lumos-container.active {
-  opacity: 1;
-  transform: scale(1.2);
+  display: none;
 }
 
 /* Lumière magique */
