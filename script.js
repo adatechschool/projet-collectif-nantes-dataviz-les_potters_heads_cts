@@ -2,19 +2,25 @@ const spellElement = document.getElementById("sortileges");
 const AguamentiBtn = document.getElementById("Aguamenti");
 const BombardoBtn = document.getElementById("Bombardo");
 const IncendioBtn = document.getElementById("Incendio");
+const GeminioBtn = document.getElementById("Geminio");
+const ApareciumBtn = document.getElementById("Aparecium");
+const ReducioBtn = document.getElementById("Reducio");
+const EvanescoBtn = document.getElementById("Evanesco");
+const FiniteIncantatemBtn = document.getElementById("Finite-incantatem");
+const EngorgioBtn = document.getElementById("Engorgio");
+const LumosBtn = document.getElementById("Lumos");
 const backgroundInondation = document.getElementById("background-inondation");
 const container = document.getElementById("container");
-const Geminiobutton = document.getElementById('Geminio')
-const geminioDescription=document.getElementById('duplicatesObject')
-const ApareciumDescription=document.getElementById('messagesSecrets')
-const reducioDescription=document.getElementById('reduireObjects')
-const AguamentiDescription=document.getElementById('SummonsWater')
-const BombardoDescription=document.getElementById('CreateExplosion')
-const EvanescoDescription=document.getElementById('VanishesObjects')
-const LumoDescription=document.getElementById('allumerLumière')
-const FiniteIncantatemDescription=document.getElementById('stopSorts')
-const IncendioDescription=document.getElementById('ConjuresFlames')
-const EngorgioDescription=document.getElementById('agrandirObjects')
+const GeminioDescription = document.getElementById("duplicatesObject");
+const ApareciumDescription = document.getElementById("messagesSecrets");
+const ReducioDescription = document.getElementById("reduireObjects");
+const AguamentiDescription = document.getElementById("SummonsWater");
+const BombardoDescription = document.getElementById("CreateExplosion");
+const EvanescoDescription = document.getElementById("VanishesObjects");
+const LumosDescription = document.getElementById("allumerLumière");
+const FiniteIncantatemDescription = document.getElementById("stopSorts");
+const IncendioDescription = document.getElementById("ConjuresFlames");
+const EngorgioDescription = document.getElementById("agrandirObjects");
 
 //ajout horloge
 function showDate() {
@@ -31,18 +37,27 @@ function showDate() {
   }
   let minutes = m + ":" + s;
   document.getElementById("horloge").innerHTML = minutes;
-  console.log(minutes);
 }
 showDate();
+
 setInterval(showDate, 1000); //setInterval mai à jour la function showDate()tous les seconds
 
+function hiddenItems(){
+document.getElementById("boutons-sorts").style.visibility = 'hidden';
+document.querySelector("footer").style.visibility='hidden';
+document.querySelector("header").style.visibility= 'hidden';
+}
+hiddenItems();
 
+function displayItems() {
+  document.body.style.backgroundColor = "#282F44";
+  document.querySelector("h1").style.color = "black";
+  document.querySelector("footer").style.visibility='visible';
+  document.querySelector("header").style.visibility= 'visible';
+  document.getElementById("boutons-sorts").style.visibility = 'visible';
 
-function changeColor() {
-    document.body.style.backgroundColor = "#282F44";
-    document.querySelector("h1").style.color = "black";
-  }
-document.addEventListener("click", changeColor);
+}
+document.addEventListener("click", displayItems);
 
 //faire apparaitre les sorts en fonction du temps
 async function fetchSpells() {
@@ -50,35 +65,39 @@ async function fetchSpells() {
   try {
     const response = await fetch("./spells.json");
     const data = await response.json();
+    //console.log(data)
+    console.log(data[2].description);
+    //ajouter les noms des sorts dans leurs bouttons html
+    AguamentiBtn.innerHTML = data[0].name;
+    BombardoBtn.innerHTML = data[2].name;
+    IncendioBtn.innerHTML = data[7].name;
+    GeminioBtn.innerHTML = data[6].name;
+    ApareciumBtn.innerHTML = data[1].name;
+    ReducioBtn.innerHTML = data[9].name;
+    EvanescoBtn.innerHTML = data[4].name;
+    FiniteIncantatemBtn.innerHTML = data[5].name;
+    EngorgioBtn.innerHTML = data[3].name;
+    LumosBtn.innerHTML = data[8].name;
 
-    AguamentiBtn.innerHTML = `${data[2].name}`;
-    BombardoBtn.innerHTML = `${data[11].name}`;
-    IncendioBtn.innerHTML = `${data[41].name}`;
-    
-    
-    }
-  
-   catch (error) {
+    //Ajouter descption au paragraphe descrptif de chaque bouton:
+    AguamentiDescription.innerHTML = data[0].description;
+    BombardoDescription.innerHTML = data[2].description;
+    IncendioDescription.innerHTML = data[7].description;
+    GeminioDescription.innerHTML = data[6].description;
+    ApareciumDescription.innerHTML = data[1].description;
+    ReducioDescription.innerHTML = data[9].description;
+    EvanescoDescription.innerHTML = data[4].description;
+    FiniteIncantatemDescription.innerHTML = data[5].description;
+    EngorgioDescription.innerHTML = data[3].description;
+    LumosDescription.innerHTML = data[8].description;
+  } catch (error) {
     console.error("Erreur lors du chargement des sorts:", error);
     spellElement.innerHTML = "Erreur lors du chargement des données";
   }
 }
 
-
 fetchSpells();
-IncendioBtn.innerHTML = `${data[41].descpriton}`;
-function apparaîtreMessage (data){
-ApareciumDescription.innerHTML = `${data[1].descpriton}`;
-ApareciumDescription.addEventListener("click"), () => {
-  if( ApareciumDescription!== "none"){
-    data[41].name.style.display = "none";
-  } else{
-    data[41].name.style.display == "block";
-  }
-  consol.log(data)
-}
 
-apparaîtreMessage (data)
 // fonction pour inondation suite au click sur Aguamenti button:
 function inondation() {
   AguamentiBtn.addEventListener("mouseover", () => {
@@ -162,31 +181,3 @@ document.getElementById("Geminio").addEventListener("mouseout", () => {
     }
   });
 });
-
- 
-
-
-// apparaîtreMessage.innerHTML += ` ${spell.descpriton}`
-// apparaîtreMessage.addEventListener("click", () => {
-//   console.log(apparaîtreMessage)
-//   if(apparaîtreMessage.style.display != "none"){
-//     apparaîtreMessage.style.display = "none";
-//   } else {
-//     apparaîtreMessage.style.display = "block";
-//   }
-// })
-
-
-// document.getElementById("Aparecium").addEventListener(
-//   "click",
-//   function afficherMessagesecrets () {
-//     document.getElementById("").hidden = true;
-//     document.getElementById("impressionnant").hidden = false;
-//   },
-//   false,
-// );
-                         
-  
-
- 
- 
