@@ -181,3 +181,13 @@ document.getElementById("Geminio").addEventListener("mouseout", () => {
     }
   });
 });
+// fonction pour Finite Incantente: bouton qui fait disparaitre tout les autres boutons:
+function finiteIncantente(){
+  FiniteIncantatemBtn.addEventListener("mouseover", () => {
+    hiddenItems();
+    setTimeout(() => {
+      displayItems();
+    }, 2000);
+  })
+}
+finiteIncantente();
