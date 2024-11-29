@@ -308,6 +308,11 @@ img {
   grid-column: 3;
 }
 
+#lumos-container {
+  grid-row: 4;
+  grid-column: 3;
+}
+
 #Evanesco {
   grid-row: 4;
   grid-column: 5;
@@ -341,4 +346,60 @@ footer {
 
 .cauldron {
   height: 300px;
+}
+
+/* Conteneur positionné */
+#lumos-container {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; 
+  border-radius: 50%;
+  opacity: 0;
+}
+
+#lumos-container.active {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* Lumière magique */
+#lumos-sort {
+  width: 50px; /* Taille de la lumière */
+  height: 50px;
+  overflow: hidden; 
+  background: radial-gradient(
+    circle,
+    rgb(229, 230, 180) 0%,
+    rgb(204, 191, 120) 30%,
+    rgb(248, 248, 210) 70%
+  );
+  border-radius: 50%;
+  box-shadow: 0 0 20px 10px rgba(185, 185, 85, 0.8), 
+              0 0 60px 30px rgba(255, 255, 204, 0.6);
+  animation: lumos-flicker 2s infinite; /* Effet de scintillement */
+}
+
+/* Animation scintillante */
+@keyframes lumos-flicker {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 20px 10px rgba(255, 255, 204, 0.8), 
+                0 0 60px 30px rgb(243, 199, 2);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px 15px rgba(255, 255, 204, 1), 
+                0 0 80px 40px rgba(255, 255, 204, 0.8);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 20px 10px rgba(255, 255, 204, 0.8), 
+                0 0 60px 30px rgba(255, 255, 204, 0.6);
+    opacity: 1;
+  }
 }

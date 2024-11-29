@@ -170,3 +170,18 @@ function shrinkObject() {
 document.getElementById("Engorgio").addEventListener("mouseout", shrinkObject);
  
  
+//fonction pour activer la lumière
+function lightIn () {
+  const light = document.getElementById("lumos-container")
+  light.classList.add("active")
+}
+
+document.getElementById("Lumos").addEventListener("mouseover", lightIn);
+
+//fonction pour éteindre la lumière
+function lightOut () {
+  const light = document.getElementById("lumos-container")
+  light.classList.remove("active")
+}
+
+document.getElementById("Lumos").addEventListener("mouseout", lightOut);
