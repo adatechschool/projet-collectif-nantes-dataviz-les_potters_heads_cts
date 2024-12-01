@@ -30,7 +30,9 @@ body {
 body.borel-regular {
   color: #ececec;
 }
-
+p{
+  display: none;
+}
 header {
   display: flex;
   justify-content: space-between; /* Distribue les éléments */
