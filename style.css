@@ -20,9 +20,11 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100%;
-  padding: 2vh 2vw;
+  width: 100vw;
+  height: 100vh; /* Ajuste à la taille de la fenêtre */
+  /* overflow: hidden; */
+  overflow: auto;
+  padding: 1vh 1vw;
   gap: 20px;
   cursor: url('./images/baguette-magique.png'), pointer;
 }
@@ -30,7 +32,9 @@ body {
 body.borel-regular {
   color: #ececec;
 }
-
+p{
+  display: none;
+}
 header {
   display: flex;
   justify-content: space-between; /* Distribue les éléments */
@@ -46,9 +50,10 @@ h1 {
 
 main {
   width: 100%;
-  height: 100%;
   margin: 0;
   padding: 0;
+  overflow: hidden;
+  overflow: auto;
 }
 
 h1 {
@@ -73,8 +78,8 @@ p {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+    width: 100vw; /* Assurez-vous qu'il occupe toute la largeur de la fenêtre */
+  height: 100vh; 
   background-color: rgb(106, 230, 244);
   transform: scaleY(0);
   transform-origin: bottom;
@@ -141,7 +146,7 @@ p {
   --fire-color-t: rgba(255, 80, 0, 0);
   --dur: 1s;
   --blur: 0.02em;
-  --fire-rad: 3em;
+  --fire-rad: 2em;
   --parts: 50;
   --part-size: 5em;
 }
@@ -153,7 +158,6 @@ p {
   margin: 3em auto 0 auto;
   position: relative;
   width: 5vw;
-  height: 5vw;
   background: none;
   z-index: 9999;
 }
@@ -204,8 +208,7 @@ p {
 }
 
 #container {
-  height: 25vh;
-  width: 25vh;
+  height: 16vh;
   overflow: hidden; /* Empêche les débordements */
   padding: 10px;
 }
@@ -213,8 +216,8 @@ p {
 #boutons-sorts {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4 colonnes de largeur égale */
-  grid-auto-rows: 27%; /* Hauteur des lignes automatique */
-  gap: 1rem; /* Espacement entre les éléments */
+  /* grid-auto-rows: 27%; */
+  gap: 15px; /* Espacement entre les éléments */
   width: 100%;
   justify-items: center; /* Centre horizontalement les éléments */
   align-items: center; /* Centre verticalement les éléments */
@@ -229,7 +232,7 @@ button {
   font-family: "HARRYP";
   font-size: 30px;
   text-align: center;
-  padding: 0.5rem;
+  padding: 10px;
   cursor: pointer;
 }
 
@@ -254,6 +257,7 @@ img {
 #chaudron {
   grid-column: 2; /* 2ème colonne */
   grid-row: 1; /* 1ère ligne */
+  transition: all 0.5s ease; /* Transition fluide */
 }
 
 #Incendio {
@@ -312,6 +316,11 @@ img {
   grid-column: 3;
 }
 
+#lumos-container {
+  grid-row: 4;
+  grid-column: 3;
+}
+
 #Evanesco {
   grid-row: 4;
   grid-column: 5;
@@ -341,4 +350,75 @@ footer {
 }
 .bougie{
   height: 150px;
+}
+
+.cauldron {
+  height: 300px;
+}
+
+/* Conteneur positionné */
+#lumos-container {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; 
+  border-radius: 50%;
+}
+
+#lumos-container.active {
+  display: none;
+}
+
+/* Lumière magique */
+#lumos-sort {
+  width: 50px; /* Taille de la lumière */
+  height: 50px;
+  overflow: hidden; 
+  background: radial-gradient(
+    circle,
+    rgb(229, 230, 180) 0%,
+    rgb(204, 191, 120) 30%,
+    rgb(248, 248, 210) 70%
+  );
+  border-radius: 50%;
+  box-shadow: 0 0 20px 10px rgba(185, 185, 85, 0.8), 
+              0 0 60px 30px rgba(255, 255, 204, 0.6);
+  animation: lumos-flicker 2s infinite; /* Effet de scintillement */
+}
+
+/* Animation scintillante */
+@keyframes lumos-flicker {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 20px 10px rgba(255, 255, 204, 0.8), 
+                0 0 60px 30px rgb(243, 199, 2);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px 15px rgba(255, 255, 204, 1), 
+                0 0 80px 40px rgba(255, 255, 204, 0.8);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 20px 10px rgba(255, 255, 204, 0.8), 
+                0 0 60px 30px rgba(255, 255, 204, 0.6);
+    opacity: 1;
+  }
+}
+
+p {
+  display: none;
+}
+
+
+p.active {
+  display: block;
+}
+
+.buttons {
+display : none;
 }

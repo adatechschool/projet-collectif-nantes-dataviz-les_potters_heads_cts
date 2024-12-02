@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>POC</title>
+    <title>Les Potters Heads</title>
     <script defer src="script.js" type="module"></script>
     <!-- <script src="spells.json"></script> -->
     <link rel="stylesheet" href="style.css" />
@@ -19,41 +19,43 @@
     </header>
   
     <main>
-     
-      
       <section id="boutons-sorts">
-        <button id="Reducio" class="buttons">Reducio</button>
-        <p id="reduireObjects"></p>
+        <button id="Reducio" >Reducio</button>
+        <p id="reduireObjects" class="active"></p>
         <img src="./images/chaudron.png" alt="chaudron-magique" id="chaudron"class="buttons"/>
-        <button id="Incendio" class="buttons">Incendio</button>
-        <p id="ConjuresFlames"></p>
+        <button id="Incendio">Incendio</button>
+        <p id="ConjuresFlames" class="active"></p>
         <img src="./images/livre.png" alt="livre" id="livre" class="buttons" />
-        <button id="Engorgio" class="buttons">Engorgio</button>
-        <p id="agrandirObjects"></p>
-        <button id="Lumos" class="buttons">Lumos</button>
-        <p id="allumerLumière"></p>
-        <button id="Bombardo" class="buttons">Bombardo</button>
-        <p id="CreateExplosion"></p>
-        <button id="Aparecium" class="buttons">Aparecium</button>
-        <p id="messagesSecrets"></p>
-        <button id="Aguamenti" class="buttons">Aguamenti</button>
-        <p id="SummonsWater"></p>
-        <button id="Geminio" class="buttons">Geminio</button>
-        <p id="duplicatesObject"></p>
-        <button id="Finite-incantatem" class="buttons">
+        <button id="Engorgio">Engorgio</button>
+        <p id="agrandirObjects" class="active"></p>
+        <button id="Lumos">Lumos</button>
+        <p id="allumerLumière" class="active"></p>
+        <button id="Bombardo">Bombardo</button>
+        <p id="CreateExplosion" class="active"></p>
+        <button id="Aparecium">Aparecium</button>
+        <p id="messagesSecrets" class="active"></p>
+        <button id="Aguamenti">Aguamenti</button>
+        <p id="SummonsWater" class="active"></p>
+        <button id="Geminio">Geminio</button>
+        <p id="duplicatesObject" class="active"></p>
+        <button id="Finite-incantatem">
           Finite Incantatem
         </button>
-        <p id="stopSorts"> </p>
+        <p id="stopSorts" class="active"> </p>
+        <div id="lumos-container" class="active">
+          <div id="lumos-sort"></div>
+        </div>
         <img src="./images/bougie.png" alt="bougie" id="bougie" />
-        <button id="Evanesco" class="buttons">Evanesco</button>
-        <p id="VanishesObjects"></p>
+        <button id="Evanesco">Evanesco</button>
+        <p id="VanishesObjects" class="active"></p>
       </section>
       <section id="fire"></section>
       <section id="container"></section>
+      <section id="fire"></section>
       <section id="wave"></section>
       <section id="background-inondation"></section>
       
-    </main>
+      </main>
 
     <footer>
       <img
