@@ -403,3 +403,16 @@ footer {
     opacity: 1;
   }
 }
+
+p {
+  display: none;
+}
+
+
+p.active {
+  display: block;
+}
+
+.buttons {
+display : none;
+}

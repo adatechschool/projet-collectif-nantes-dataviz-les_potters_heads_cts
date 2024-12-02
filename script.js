@@ -225,3 +225,40 @@ function finiteIncantente(){
   })
 }
 finiteIncantente();
+
+document.addEventListener("DOMContentLoaded", function () {
+  const button = document.getElementById("Aparecium");
+  const messages = document.querySelectorAll("p"); // Sélectionne tous les paragraphes
+
+  // Cacher tous les paragraphes au départ
+  messages.forEach(message => message.classList.remove("active"));
+
+  // Affiche les paragraphes au survol du bouton
+  button.addEventListener("mouseover", function () {
+    messages.forEach(message => message.classList.add("active"));
+  });
+
+  // Cache les paragraphes quand la souris quitte le bouton
+  button.addEventListener("mouseout", function () {
+    messages.forEach(message => message.classList.remove("active"));
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const button = document.getElementById("Evanesco");
+  const images = document.querySelectorAll("img"); // Sélectionne tous les paragraphes
+
+  // Cacher tous les paragraphes au départ
+  images.forEach(image => image.classList.remove("buttons"));
+
+  // Affiche les paragraphes au survol du bouton
+  button.addEventListener("mouseover", function () {
+    images.forEach(image => image.classList.add("buttons"));
+  });
+
+  // Cache les paragraphes quand la souris quitte le bouton
+  button.addEventListener("mouseout", function () {
+    images.forEach(image => image.classList.remove("buttons"));
+  });
+});
+
