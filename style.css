@@ -355,7 +355,9 @@ footer {
 .cauldron {
   height: 300px;
 }
-
+.book{
+  height:50px ;
+}
 /* Conteneur positionné */
 #lumos-container {
   width: 150px;

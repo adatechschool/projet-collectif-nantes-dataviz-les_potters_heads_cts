@@ -199,7 +199,27 @@ function shrinkObject() {
 
 document.getElementById("Engorgio").addEventListener("mouseout", shrinkObject);
  
+
+
+//fonction pour rétrécir Object le livre
+function retrecirObject(){
+  
+const reduire = document.getElementById("livre");
+
+reduire.classList.add("book")
+ }
  
+ ReducioBtn.addEventListener("mouseover",retrecirObject);
+
+ //fonction pour remettre le livre à sa taille initiale
+function tailleNormal(){
+  const reduire = document.getElementById("livre");
+  reduire.classList.remove("book")
+}
+
+ReducioBtn.addEventListener("mouseout",tailleNormal)
+
+
 //fonction pour activer la lumière
 function lightIn () {
   const light = document.getElementById("lumos-container")
