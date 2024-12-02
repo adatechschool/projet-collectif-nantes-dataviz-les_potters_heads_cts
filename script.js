@@ -181,12 +181,11 @@ document.getElementById("Geminio").addEventListener("mouseout", () => {
   });
 });
 
-
 //fonction pour faire grossir l'objet
-function growObject () {
-  const growth = document.getElementById('chaudron')
-    growth.classList.add("cauldron")
-  }
+function growObject() {
+  const growth = document.getElementById("chaudron");
+  growth.classList.add("cauldron");
+}
 
 document.getElementById("Engorgio").addEventListener("mouseover", growObject);
 
@@ -196,42 +195,37 @@ function shrinkObject() {
   growth.classList.remove("cauldron"); // Supprime la classe pour revenir à l'état initial
 }
 
-
 document.getElementById("Engorgio").addEventListener("mouseout", shrinkObject);
- 
-
 
 //fonction pour rétrécir Object le livre
-function retrecirObject(){
-  
-const reduire = document.getElementById("livre");
+function retrecirObject() {
+  const reduire = document.getElementById("livre");//je stock le livre dans reduire
 
-reduire.classList.add("book")
- }
- 
- ReducioBtn.addEventListener("mouseover",retrecirObject);
+  reduire.classList.add("book");//sa ajoute book qui à 50px en css pour reduire visuelement  
+}
+//ecouter le survol de la souris sur le bouton ReductioBtn et appliqur la fonction, retrecirObject
+ReducioBtn.addEventListener("mouseover", retrecirObject);
 
- //fonction pour remettre le livre à sa taille initiale
-function tailleNormal(){
-  const reduire = document.getElementById("livre");
-  reduire.classList.remove("book")
+//fonction pour remettre le livre à sa taille initiale
+function tailleNormal() {
+  const reduire = document.getElementById("livre");//je stock le livre dans reduire 
+  reduire.classList.remove("book");//retirer book pour mettre le livre à sa taille normal
 }
 
-ReducioBtn.addEventListener("mouseout",tailleNormal)
-
+ReducioBtn.addEventListener("mouseout", tailleNormal);
 
 //fonction pour activer la lumière
-function lightIn () {
-  const light = document.getElementById("lumos-container")
-  light.classList.remove("active")
+function lightIn() {
+  const light = document.getElementById("lumos-container");
+  light.classList.remove("active");
 }
 
 document.getElementById("Lumos").addEventListener("mouseover", lightIn);
 
 //fonction pour éteindre la lumière
-function lightOut () {
-  const light = document.getElementById("lumos-container")
-  light.classList.add("active")
+function lightOut() {
+  const light = document.getElementById("lumos-container");
+  light.classList.add("active");
 }
 
 document.getElementById("Lumos").addEventListener("mouseout", lightOut);
@@ -246,25 +240,22 @@ function finiteIncantente() {
 }
 finiteIncantente();
 
-
-
 document.addEventListener("DOMContentLoaded", function () {
   const button = document.getElementById("Aparecium");
   const messages = document.querySelectorAll("p"); // Sélectionne tous les paragraphes
   // Cacher tous les paragraphes au départ
-  messages.forEach(message => message.classList.remove("active"));
+  messages.forEach((message) => message.classList.remove("active"));
 
   // Cacher tous les paragraphes au départ
-  
 
   // Affiche les paragraphes au survol du bouton
   button.addEventListener("mouseover", function () {
-    messages.forEach(message => message.classList.add("active"));
+    messages.forEach((message) => message.classList.add("active"));
   });
 
   // Cache les paragraphes quand la souris quitte le bouton
   button.addEventListener("mouseout", function () {
-    messages.forEach(message => message.classList.remove("active"));
+    messages.forEach((message) => message.classList.remove("active"));
   });
 });
 
@@ -273,16 +264,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const images = document.querySelectorAll("img"); // Sélectionne tous les paragraphes
 
   // Cacher tous les paragraphes au départ
-  images.forEach(image => image.classList.remove("buttons"));
+  images.forEach((image) => image.classList.remove("buttons"));
 
   // Affiche les paragraphes au survol du bouton
   button.addEventListener("mouseover", function () {
-    images.forEach(image => image.classList.add("buttons"));
+    images.forEach((image) => image.classList.add("buttons"));
   });
 
   // Cache les paragraphes quand la souris quitte le bouton
   button.addEventListener("mouseout", function () {
-    images.forEach(image => image.classList.remove("buttons"));
+    images.forEach((image) => image.classList.remove("buttons"));
   });
 });
-
