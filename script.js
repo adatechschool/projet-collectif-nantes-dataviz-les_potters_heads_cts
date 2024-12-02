@@ -180,6 +180,41 @@ document.getElementById("Geminio").addEventListener("mouseout", () => {
     }
   });
 });
+
+
+//fonction pour faire grossir l'objet
+function growObject () {
+  const growth = document.getElementById('chaudron')
+    growth.classList.add("cauldron")
+  }
+
+document.getElementById("Engorgio").addEventListener("mouseover", growObject);
+
+//fonction pour remettre à la bonne taille l'objet
+function shrinkObject() {
+  const growth = document.getElementById("chaudron");
+  growth.classList.remove("cauldron"); // Supprime la classe pour revenir à l'état initial
+}
+
+
+document.getElementById("Engorgio").addEventListener("mouseout", shrinkObject);
+ 
+ 
+//fonction pour activer la lumière
+function lightIn () {
+  const light = document.getElementById("lumos-container")
+  light.classList.remove("active")
+}
+
+document.getElementById("Lumos").addEventListener("mouseover", lightIn);
+
+//fonction pour éteindre la lumière
+function lightOut () {
+  const light = document.getElementById("lumos-container")
+  light.classList.add("active")
+}
+
+document.getElementById("Lumos").addEventListener("mouseout", lightOut);
 // fonction pour Finite Incantente: bouton qui fait disparaitre tout les autres boutons:
 function finiteIncantente(){
   FiniteIncantatemBtn.addEventListener("mouseover", () => {
@@ -190,3 +225,43 @@ function finiteIncantente(){
   })
 }
 finiteIncantente();
+<<<<<<< HEAD
+=======
+
+document.addEventListener("DOMContentLoaded", function () {
+  const button = document.getElementById("Aparecium");
+  const messages = document.querySelectorAll("p"); // Sélectionne tous les paragraphes
+
+  // Cacher tous les paragraphes au départ
+  messages.forEach(message => message.classList.remove("active"));
+
+  // Affiche les paragraphes au survol du bouton
+  button.addEventListener("mouseover", function () {
+    messages.forEach(message => message.classList.add("active"));
+  });
+
+  // Cache les paragraphes quand la souris quitte le bouton
+  button.addEventListener("mouseout", function () {
+    messages.forEach(message => message.classList.remove("active"));
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const button = document.getElementById("Evanesco");
+  const images = document.querySelectorAll("img"); // Sélectionne tous les paragraphes
+
+  // Cacher tous les paragraphes au départ
+  images.forEach(image => image.classList.remove("buttons"));
+
+  // Affiche les paragraphes au survol du bouton
+  button.addEventListener("mouseover", function () {
+    images.forEach(image => image.classList.add("buttons"));
+  });
+
+  // Cache les paragraphes quand la souris quitte le bouton
+  button.addEventListener("mouseout", function () {
+    images.forEach(image => image.classList.remove("buttons"));
+  });
+});
+
+>>>>>>> 462595276cf7a3a7634b5f82036f57c0f5158b8c
