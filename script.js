@@ -225,8 +225,6 @@ function finiteIncantente(){
   })
 }
 finiteIncantente();
-<<<<<<< HEAD
-=======
 
 document.addEventListener("DOMContentLoaded", function () {
   const button = document.getElementById("Aparecium");
@@ -264,4 +262,3 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
->>>>>>> 462595276cf7a3a7634b5f82036f57c0f5158b8c
