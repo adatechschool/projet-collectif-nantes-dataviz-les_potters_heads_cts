@@ -444,7 +444,6 @@ p {
   font-family: "Borel", cursive;
   text-align: center;
 }
-
 p.message {
   opacity: 0; /* Par défaut invisible */
   display: block; /* Toujours réserver l'espace */

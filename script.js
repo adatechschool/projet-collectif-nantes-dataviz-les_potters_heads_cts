@@ -295,3 +295,4 @@ document.addEventListener("DOMContentLoaded", function () {
     images.forEach((image) => image.classList.remove("buttons"));
   });
 });
+
