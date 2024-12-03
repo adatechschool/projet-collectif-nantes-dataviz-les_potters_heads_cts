@@ -3,11 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potter Head</title>
+    <script defer src="characters.js"></script>
     <title>Characters</title>
-    <script defer src="script.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <script defer src="characters.js"></script>
+    <link rel="stylesheet" href="characters.css">
 </head>
 <body>
-
+    <h1>Personnages Harry Potter</h1>
+   
+    <article class="searchBar">
+      <select id="sortOrder">
+        <option value="az">A-Z</option>
+        <option value="za">Z-A</option>
+      </select>
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Recherchez votre personnage"
+      />
+      <button id="search-Btn">search</button>
+      <select id="houseSorting">
+        <option value="all">Toutes les maisons</option>
+        <option value="Gryffondor">Gryffondor</option>
+        <option value="Serpentard">Serpentard</option>
+        <option value="Poufsouffle">Poufsouffle</option>
+        <option value="Serdaigle">Serdaigle</option>
+      </select>
+      
+    </article>
+    <section id="searchResult"></section>
 </body>
 </html>
