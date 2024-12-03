@@ -103,7 +103,7 @@ const pourcentagePersonnageParMaison = new Chart(ctx, {
     plugins: {
       title: {
         display: true,
-        text: "Répartition personnage/maison (%)",
+        text:"",
         font: {
           size: 28 // Taille du texte en pixels
         },
