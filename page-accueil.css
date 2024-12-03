@@ -1,0 +1,70 @@
+@font-face {
+    font-family: "HARRYP";
+    src: url("./police/HARRYP__.TTF") format("ttf"),
+      url("police/HARRYP__.TTF") format("truetype");
+    font-weight: normal; /* ou bold, etc. */
+    font-style: normal; /* ou italic, etc. */
+  }
+  
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+  }
+
+  html {
+    max-width: 100vw;
+  }
+
+  body {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%; /* Ajuste à la taille de la fenêtre */
+    cursor: url("./images/baguette-magique.png"), pointer;
+  }
+
+  h1 {
+    color: #ececec !important;
+    font-family: "HARRYP";
+    font-size: 50px;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+  }
+
+  button {
+    width: 12vw; /* Les boutons s'ajustent à la cellule */
+    background-color: #282f44;
+    color: #ececec;
+    border: 1px solid #e6af2e;
+    border-radius: 15px;
+    font-family: "HARRYP";
+    font-size: 30px;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #353e5a;
+  }
+
+  main {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20%;
+    gap: 20px;
+  }
+  
