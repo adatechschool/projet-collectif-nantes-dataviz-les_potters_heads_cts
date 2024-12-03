@@ -210,6 +210,7 @@ function lightOut() {
 }
 
 document.getElementById("Lumos").addEventListener("mouseover", lightIn);
+document.getElementById("Lumos").addEventListener("mouseout", lightOut);
 
 //fonction pour rétrécir Object le livre
 function retrecirObject() {
