@@ -2,19 +2,25 @@ const spellElement = document.getElementById("sortileges");
 const AguamentiBtn = document.getElementById("Aguamenti");
 const BombardoBtn = document.getElementById("Bombardo");
 const IncendioBtn = document.getElementById("Incendio");
+const GeminioBtn = document.getElementById("Geminio");
+const ApareciumBtn = document.getElementById("Aparecium");
+const ReducioBtn = document.getElementById("Reducio");
+const EvanescoBtn = document.getElementById("Evanesco");
+const FiniteIncantatemBtn = document.getElementById("Finite-incantatem");
+const EngorgioBtn = document.getElementById("Engorgio");
+const LumosBtn = document.getElementById("Lumos");
 const backgroundInondation = document.getElementById("background-inondation");
 const container = document.getElementById("container");
-const Geminiobutton = document.getElementById('Geminio')
-const geminioDescription=document.getElementById('duplicatesObject')
-const ApareciumDescription=document.getElementById('messagesSecrets')
-const reducioDescription=document.getElementById('reduireObjects')
-const AguamentiDescription=document.getElementById('SummonsWater')
-const BombardoDescription=document.getElementById('CreateExplosion')
-const EvanescoDescription=document.getElementById('VanishesObjects')
-const LumoDescription=document.getElementById('allumerLumière')
-const FiniteIncantatemDescription=document.getElementById('stopSorts')
-const IncendioDescription=document.getElementById('ConjuresFlames')
-const EngorgioDescription=document.getElementById('agrandirObjects')
+const GeminioDescription = document.getElementById("duplicatesObject");
+const ApareciumDescription = document.getElementById("messagesSecrets");
+const ReducioDescription = document.getElementById("reduireObjects");
+const AguamentiDescription = document.getElementById("SummonsWater");
+const BombardoDescription = document.getElementById("CreateExplosion");
+const EvanescoDescription = document.getElementById("VanishesObjects");
+const LumosDescription = document.getElementById("allumerLumière");
+const FiniteIncantatemDescription = document.getElementById("stopSorts");
+const IncendioDescription = document.getElementById("ConjuresFlames");
+const EngorgioDescription = document.getElementById("agrandirObjects");
 
 //ajout horloge
 function showDate() {
@@ -22,7 +28,7 @@ function showDate() {
   //let h = date.getHours();
   let m = date.getMinutes();
   let s = date.getSeconds();
-  //if( h < 10 ){ h = '0' + h; }
+
   if (m < 10) {
     m = "0" + m;
   }
@@ -31,39 +37,62 @@ function showDate() {
   }
   let minutes = m + ":" + s;
   document.getElementById("horloge").innerHTML = minutes;
-  console.log(minutes);
 }
 showDate();
+
 setInterval(showDate, 1000); //setInterval mai à jour la function showDate()tous les seconds
 
+function hiddenItems() {
+  document.getElementById("boutons-sorts").style.visibility = "hidden";
+  document.querySelector("footer").style.visibility = "hidden";
+  document.querySelector("header").style.visibility = "hidden";
+}
+hiddenItems();
 
-
-function changeColor() {
-    document.body.style.backgroundColor = "#282F44";
-    document.querySelector("h1").style.color = "black";
-  }
-document.addEventListener("click", changeColor);
+function displayItems() {
+  document.body.style.backgroundColor = "#282F44";
+  document.querySelector("h1").style.color = "black";
+  document.querySelector("footer").style.visibility = "visible";
+  document.querySelector("header").style.visibility = "visible";
+  document.getElementById("boutons-sorts").style.visibility = "visible";
+}
+document.addEventListener("click", displayItems);
 
 //faire apparaitre les sorts en fonction du temps
 async function fetchSpells() {
+  console.log(fetchSpells);
   try {
     const response = await fetch("./spells.json");
     const data = await response.json();
-
-    AguamentiBtn.innerHTML = `${data[2].name}`;
-    BombardoBtn.innerHTML = `${data[11].name}`;
-    IncendioBtn.innerHTML = `${data[41].name}`;
-    Geminiobutton.innerHTML=data
     
-      
-    }
-   
-   catch (error) {
+    //ajouter les noms des sorts dans leurs bouttons html
+    AguamentiBtn.innerHTML = data[0].name;
+    BombardoBtn.innerHTML = data[2].name;
+    IncendioBtn.innerHTML = data[7].name;
+    GeminioBtn.innerHTML = data[6].name;
+    ApareciumBtn.innerHTML = data[1].name;
+    ReducioBtn.innerHTML = data[9].name;
+    EvanescoBtn.innerHTML = data[4].name;
+    FiniteIncantatemBtn.innerHTML = data[5].name;
+    EngorgioBtn.innerHTML = data[3].name;
+    LumosBtn.innerHTML = data[8].name;
+
+    //Ajouter descption au paragraphe descrptif de chaque bouton:
+    AguamentiDescription.innerHTML = data[0].description;
+    BombardoDescription.innerHTML = data[2].description;
+    IncendioDescription.innerHTML = data[7].description;
+    GeminioDescription.innerHTML = data[6].description;
+    ApareciumDescription.innerHTML = data[1].description;
+    ReducioDescription.innerHTML = data[9].description;
+    EvanescoDescription.innerHTML = data[4].description;
+    FiniteIncantatemDescription.innerHTML = data[5].description;
+    EngorgioDescription.innerHTML = data[3].description;
+    LumosDescription.innerHTML = data[8].description;
+  } catch (error) {
     console.error("Erreur lors du chargement des sorts:", error);
     spellElement.innerHTML = "Erreur lors du chargement des données";
   }
 }
-
 
 fetchSpells();
 
@@ -151,12 +180,11 @@ document.getElementById("Geminio").addEventListener("mouseout", () => {
   });
 });
 
-
 //fonction pour faire grossir l'objet
-function growObject () {
-  const growth = document.getElementById('chaudron')
-    growth.classList.add("cauldron")
-  }
+function growObject() {
+  const growth = document.getElementById("chaudron");
+  growth.classList.add("cauldron");
+}
 
 document.getElementById("Engorgio").addEventListener("mouseover", growObject);
 
@@ -166,22 +194,104 @@ function shrinkObject() {
   growth.classList.remove("cauldron"); // Supprime la classe pour revenir à l'état initial
 }
 
-
 document.getElementById("Engorgio").addEventListener("mouseout", shrinkObject);
  
  
-//fonction pour activer la lumière
-function lightIn () {
-  const light = document.getElementById("lumos-container")
-  light.classList.add("active")
+// Fonction pour activer la lumière
+function lightIn() {
+  const light = document.getElementById("lumos-container");
+  light.style.display = "flex"; // Afficher le conteneur
+}
+
+// Fonction pour éteindre la lumière
+function lightOut() {
+  const light = document.getElementById("lumos-container");
+  light.style.display = "none"; // Cacher le conteneur
 }
 
 document.getElementById("Lumos").addEventListener("mouseover", lightIn);
+document.getElementById("Lumos").addEventListener("mouseout", lightOut);
 
-//fonction pour éteindre la lumière
-function lightOut () {
-  const light = document.getElementById("lumos-container")
-  light.classList.remove("active")
+//fonction pour rétrécir Object le livre
+function retrecirObject() {
+  const reduire = document.getElementById("livre");//je stock le livre dans reduire
+
+  reduire.classList.add("book");//sa ajoute book qui à 50px en css pour reduire visuelement  
+}
+//ecouter le survol de la souris sur le bouton ReductioBtn et appliqur la fonction, retrecirObject
+ReducioBtn.addEventListener("mouseover", retrecirObject);
+
+//fonction pour remettre le livre à sa taille initiale
+function tailleNormal() {
+  const reduire = document.getElementById("livre");//je stock le livre dans reduire 
+  reduire.classList.remove("book");//retirer book pour mettre le livre à sa taille normal
 }
 
-document.getElementById("Lumos").addEventListener("mouseout", lightOut);
+ReducioBtn.addEventListener("mouseout", tailleNormal);
+
+
+// fonction pour Finite Incantente: bouton qui fait disparaitre tout les autres boutons:
+function finiteIncantente() {
+  FiniteIncantatemBtn.addEventListener("mouseover", () => {
+    hiddenItems();
+    setTimeout(() => {
+      displayItems();
+    }, 2000);
+  });
+}
+finiteIncantente();
+
+document.addEventListener("DOMContentLoaded", function () {
+  const apareciumButton = document.getElementById("Aparecium");
+  const messages = document.querySelectorAll("p.message"); // Sélectionne tous les paragraphes avec la classe 'message'
+
+  // Cacher tous les paragraphes au départ
+  messages.forEach(message => {
+    message.classList.remove("message-active");
+    message.style.display = 'none'; // Assurez-vous qu'ils sont cachés
+    message.style.opacity = 0; // Initialement invisible
+  });
+
+  // Affiche les paragraphes au survol du bouton
+  apareciumButton.addEventListener("mouseover", function () {
+    messages.forEach(message => {
+      message.classList.add("message-active");
+      message.style.display = 'block'; // Affiche le paragraphe
+      setTimeout(() => { // Attendre une petite durée avant de rendre visible
+        message.style.opacity = 1; // Rendre visible
+      }, 10); // Délai en ms
+    });
+  });
+
+  // Cache les paragraphes quand la souris quitte le bouton
+  apareciumButton.addEventListener("mouseout", function () {
+    messages.forEach(message => {
+      message.style.opacity = 0; // Rendre invisible
+      setTimeout(() => { // Attendre la fin de la transition pour cacher complètement
+        message.style.display = 'none';
+        message.classList.remove("message-active");
+      }, 500); // Durée de la transition en ms
+    });
+  });
+});
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const button = document.getElementById("Evanesco");
+  const images = document.querySelectorAll("img"); // Sélectionne tous les paragraphes
+
+  // Cacher tous les paragraphes au départ
+  images.forEach((image) => image.classList.remove("buttons"));
+
+  // Affiche les paragraphes au survol du bouton
+  button.addEventListener("mouseover", function () {
+    images.forEach((image) => image.classList.add("buttons"));
+  });
+
+  // Cache les paragraphes quand la souris quitte le bouton
+  button.addEventListener("mouseout", function () {
+    images.forEach((image) => image.classList.remove("buttons"));
+  });
+});

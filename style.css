@@ -14,18 +14,24 @@
   border: none;
   outline: none;
 }
+
+html {
+  max-width: 100vw;
+}
+
 body {
-  background-color: #070f2b;
+  background-color: black;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh; /* Ajuste à la taille de la fenêtre */
-  overflow: hidden; /* Cache tout débordement */
+  width: 100%;
+  height: 100%; /* Ajuste à la taille de la fenêtre */
+  overflow: hidden;
   overflow: auto;
-  padding: 2vh 2vw;
+  padding: 1vh 1vw;
   gap: 20px;
+  cursor: url("./images/baguette-magique.png"), pointer;
 }
 
 body.borel-regular {
@@ -48,9 +54,10 @@ h1 {
 
 main {
   width: 100%;
-  /* height: 100%; */
   margin: 0;
   padding: 0;
+  overflow: hidden;
+  overflow: auto;
 }
 
 h1 {
@@ -60,6 +67,10 @@ h1 {
   display: flex;
   flex: 1;
   justify-content: center;
+}
+
+p {
+  display: none;
 }
 
 .horloge {
@@ -72,14 +83,15 @@ h1 {
   position: fixed;
   top: 0;
   left: 0;
-    width: 100vw; /* Assurez-vous qu'il occupe toute la largeur de la fenêtre */
-  height: 100vh; 
+  width: 100vw; /* Assurez-vous qu'il occupe toute la largeur de la fenêtre */
+  height: 100vh;
   background-color: rgb(106, 230, 244);
   transform: scaleY(0);
   transform-origin: bottom;
   transition: transform 3s ease-in-out;
   z-index: 5;
 }
+
 #background-inondation.inondation {
   transform: scaleY(1);
 }
@@ -90,7 +102,7 @@ h1 {
   width: 100%;
   height: 50px;
   background: rgba(81, 203, 238, 0.5);
-  animation: wave 3s infinite alternate;
+  animation: wave 5s infinite alternate;
 }
 @keyframes wave {
   0% {
@@ -153,6 +165,7 @@ h1 {
   position: relative;
   width: 5vw;
   background: none;
+  z-index: 9999;
 }
 
 .particule {
@@ -186,6 +199,7 @@ h1 {
     max-width: 100vw;
   }
 }
+
 .borel-regular {
   font-family: "Borel", cursive;
   font-weight: 400;
@@ -208,9 +222,9 @@ h1 {
 
 #boutons-sorts {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 colonnes de largeur égale */
-  grid-auto-rows: 27%; /* Hauteur des lignes automatique */
-  gap: 0.5rem; /* Espacement entre les éléments */
+  grid-template-columns: repeat(5, 1fr); /* 4 colonnes de largeur égale */
+  grid-template-rows: repeat(4, auto);
+  gap: 6vh; /* Espacement entre les éléments */
   width: 100%;
   justify-items: center; /* Centre horizontalement les éléments */
   align-items: center; /* Centre verticalement les éléments */
@@ -225,7 +239,7 @@ button {
   font-family: "HARRYP";
   font-size: 30px;
   text-align: center;
-  padding: 0.5rem;
+  padding: 10px;
   cursor: pointer;
 }
 
@@ -237,82 +251,81 @@ img {
   height: 150px; /* Taille maximale des images */
 }
 
-/* Ajout de styles spécifiques pour le positionnement */
+#logo-harry-potter {
+  height: 50px;
+}
+
+/* Ajustez les positions des éléments */
 #Reducio {
-  grid-column: 1; /* 1ère colonne */
-  grid-row: 1; /* 1ère ligne */
+  grid-column: 1;
+  grid-row: 1;
 }
 
 #chaudron {
-  grid-column: 2; /* 2ème colonne */
-  grid-row: 1; /* 1ère ligne */
-  transition: all 0.5s ease; /* Transition fluide */
+  grid-column: 2;
+  grid-row: 1;
+  transition: transform 0.7s ease;
 }
 
 #Incendio {
-  grid-column: 3; /* 3ème colonne */
-  grid-row: 1; /* 1ère ligne */
+  grid-column: 3;
+  grid-row: 1;
 }
 
 #livre {
-  grid-column: 4; /* 4ème colonne */
-  grid-row: 1; /* 1ère ligne */
+  grid-column: 4;
+  grid-row: 1;
 }
 
 #Engorgio {
-  grid-column: 5; /* 5ème colonne */
-  grid-row: 1; /* 1ère ligne */
-}
-
-#Lumos,
-#Bombardo {
-  grid-row: 2; /* 2ème ligne */
+  grid-column: 5;
+  grid-row: 1;
 }
 
 #Lumos {
-  grid-column: 2; /* Centré à gauche */
+  grid-column: 2;
+  grid-row: 2;
+}
+
+#lumos-sort {
+  grid-column: 2;
+  grid-row: 2;
 }
 
 #Bombardo {
-  grid-column: 4; /* Centré à droite */
-}
-
-#Aparecium,
-#Aguamenti,
-#Geminio {
-  grid-row: 3; /* 3ème ligne */
+  grid-column: 4;
+  grid-row: 2;
 }
 
 #Aparecium {
   grid-column: 1;
+  grid-row: 3;
+  transition: 0.5s ease;
 }
-
 #Aguamenti {
   grid-column: 3;
+  grid-row: 3;
 }
 
 #Geminio {
   grid-column: 5;
+  grid-row: 3;
 }
 
 #Finite-incantatem {
-  grid-row: 4;
   grid-column: 1;
+  grid-row: 4;
 }
 
 #bougie {
-  grid-row: 4;
   grid-column: 3;
-}
-
-#lumos-container {
   grid-row: 4;
-  grid-column: 3;
+  position: relative; /* Pour garder la position correcte */
 }
 
 #Evanesco {
-  grid-row: 4;
   grid-column: 5;
+  grid-row: 4;
 }
 
 footer {
@@ -321,8 +334,7 @@ footer {
   align-items: flex-start;
   flex: 1;
   width: 100%;
-  margin: 0;
-  padding: 10px;
+  max-height: 50px;
 }
 
 #logo-harry-potter {
@@ -339,36 +351,42 @@ footer {
   display: flex;
   justify-content: left;
 }
-.bougie{
+
+.bougie {
   height: 150px;
 }
 
 .cauldron {
-  height: 300px;
+  transform: scale(1.5);
+}
+
+.book{
+  transform: scale(0.6);
 }
 
 /* Conteneur positionné */
 #lumos-container {
-  width: 200px;
-  height: 200px;
-  display: flex;
+  width: 150px;
+  height: 150px;
+  display: none;
   justify-content: center;
   align-items: center;
-  overflow: hidden; 
+  overflow: hidden;
   border-radius: 50%;
-  opacity: 0;
+  grid-column: 3; /* Assurez-vous que cela correspond à la colonne de la bougie */
+  grid-row: 4; /* Assurez-vous que cela correspond à la ligne de la bougie */
+  z-index: 10; /* Assurez-vous qu'il est au-dessus de la bougie */
 }
 
-#lumos-container.active {
-  opacity: 1;
-  transform: scale(1.2);
+#lumos-container.light-active {
+  display: flex; /* Afficher lorsque 'light-active' est enlevé */
 }
 
 /* Lumière magique */
 #lumos-sort {
   width: 50px; /* Taille de la lumière */
   height: 50px;
-  overflow: hidden; 
+  overflow: hidden;
   background: radial-gradient(
     circle,
     rgb(229, 230, 180) 0%,
@@ -376,8 +394,8 @@ footer {
     rgb(248, 248, 210) 70%
   );
   border-radius: 50%;
-  box-shadow: 0 0 20px 10px rgba(185, 185, 85, 0.8), 
-              0 0 60px 30px rgba(255, 255, 204, 0.6);
+  box-shadow: 0 0 20px 10px rgba(185, 185, 85, 0.8),
+    0 0 60px 30px rgba(255, 255, 204, 0.6);
   animation: lumos-flicker 2s infinite; /* Effet de scintillement */
 }
 
@@ -385,20 +403,55 @@ footer {
 @keyframes lumos-flicker {
   0% {
     transform: scale(1);
-    box-shadow: 0 0 20px 10px rgba(255, 255, 204, 0.8), 
-                0 0 60px 30px rgb(243, 199, 2);
+    box-shadow: 0 0 20px 10px rgba(255, 255, 204, 0.8),
+      0 0 60px 30px rgb(243, 199, 2);
     opacity: 1;
   }
   50% {
     transform: scale(1.1);
-    box-shadow: 0 0 30px 15px rgba(255, 255, 204, 1), 
-                0 0 80px 40px rgba(255, 255, 204, 0.8);
+    box-shadow: 0 0 30px 15px rgba(255, 255, 204, 1),
+      0 0 80px 40px rgba(255, 255, 204, 0.8);
     opacity: 0.9;
   }
   100% {
     transform: scale(1);
-    box-shadow: 0 0 20px 10px rgba(255, 255, 204, 0.8), 
-                0 0 60px 30px rgba(255, 255, 204, 0.6);
+    box-shadow: 0 0 20px 10px rgba(255, 255, 204, 0.8),
+      0 0 60px 30px rgba(255, 255, 204, 0.6);
     opacity: 1;
   }
+}
+
+.buttons {
+  display: none;
+}
+
+
+p {
+  font-family: "borel", cursive;
+  font-size: 14px;
+  color: #ececec;
+  display: none;
+  transition: 0.5s ease;
+}
+
+.sort-container {
+  display: flex;
+  flex-direction: column; /* Assure un alignement vertical */
+  align-items: center; /* Centre horizontalement le contenu */
+  gap: 10px; /* Espacement entre le bouton et le paragraphe */
+  color: #ececec; /* Couleur pour s'harmoniser avec le design */
+  font-size: 15px; /* Taille ajustable selon le besoin */
+  font-family: "Borel", cursive;
+  text-align: center;
+}
+
+p.message {
+  opacity: 0; /* Par défaut invisible */
+  display: block; /* Toujours réserver l'espace */
+  height: 1em; /* Ajustez la hauteur selon vos besoins */
+  transition: opacity 0.5s ease; /* Transition pour l'effet de glissement */
+}
+
+p.message-active {
+  opacity: 1; /* Visible lorsqu'ajouté */
 }
