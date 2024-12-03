@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Potter Head</title>
     <script defer src="characters.js"></script>
     <title>Characters</title>
+    <link rel="stylesheet" href="characters.css" />
     <script defer src="characters.js"></script>
-    <link rel="stylesheet" href="characters.css">
-</head>
-<body>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
     <h1>Personnages Harry Potter</h1>
-   
-    <article class="searchBar">
+
+    <article id ="container-characters" class="searchBar">
       <select id="sortOrder">
         <option value="az">A-Z</option>
         <option value="za">Z-A</option>
@@ -30,8 +31,11 @@
         <option value="Poufsouffle">Poufsouffle</option>
         <option value="Serdaigle">Serdaigle</option>
       </select>
-      
+      <button id="pie-graph">Graph</button>
     </article>
     <section id="searchResult"></section>
-</body>
+    <div id="container-graph">
+      <canvas id="repartitionMaison" width="600" height="600"></canvas>
+    </div>
+  </body>
 </html>

@@ -1,33 +1,76 @@
-*{
-    font-family: cursive;
+@import url("https://fonts.googleapis.com/css2?family=Borel&display=swap");
+@font-face {
+  font-family: "HARRYP";
+  src: url("./police/HARRYP__.TTF") format("ttf"),
+    url("police/HARRYP__.TTF") format("truetype");
+  font-weight: normal; /* ou bold, etc. */
+  font-style: normal; /* ou italic, etc. */
+}
+
+.borel-regular {
+  font-family: "Borel", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+}
+
+html {
+  gap: 1vh;
 }
 
 body {
-  background-color: black;
+  background-color: #282f44;
+  width: 100%;
+  height: 100%; /* Ajuste à la taille de la fenêtre */
+  cursor: url("./images/baguette-magique.png"), pointer;
+
 }
-h1, h2 {
+
+h1,
+h2 {
   display: flex;
-  justify-content: left;
-  color: gold;
+  justify-content: center;
+  color: #ececec !important;
+  font-family: "HARRYP";
+  font-size: 50px;
 }
+
+h1 {
+  padding: 2vh;
+}
+
+h3 {
+  color: #ececec !important;
+  font-family: "HARRYP";
+  font-size: 30px;
+}
+
 .searchBar {
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 #searchInput {
   width: 300px; /* Largeur recommandée en pixels plutôt qu'en cm */
   padding: 10px;
-  border: 2px solid #ccc;
+  border: 2px solid #ececec;
   border-radius: 20px; /* Coins arrondis */
-  font-size: 16px;
+  font-size: 15px;
   outline: none; /* Supprime le contour par défaut lors du focus */
   transition: all 0.3s ease; /* Animation douce */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Léger effet d'ombre */
 }
 
 #search-Btn {
-  background-color: #a50606;
+  background-color: #e6af2e;
   width: 100px;
   color: white;
   border: none;
@@ -37,53 +80,82 @@ h1, h2 {
   transition: background-color 0.3s ease;
 }
 
-.search-Input:hover {
-  background-color: #520303; /* Légèrement plus foncé au survol */
+#search-Btn:hover {
+  background-color: #a37f2b;
 }
+
+#searchInput:hover {
+  color: #cfcece; /* Légèrement plus foncé au survol */
+}
+
 #searchResult ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 90px;
-    list-style-type: none;
-    padding: 100px;
-    color: white;
-    
-  }
-  ul :hover {
-    transform: scale(1.4); /* Zoom*/
-    z-index: 10;
-    position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 90px;
+  list-style-type: none;
+  padding: 100px;
+  color: #ececec;
 }
-  
-  #searchResult li {
-    border: 1px solid gold;
-    padding: 10px;
-    text-align: center;
-    border-radius: 8px;
-  }
-  
-  #searchResult img {
-    max-width: 150px;
-    height: auto;
-    margin: 10px 0;
-  }
 
-  #sortOrder {
-    width: 90px;
-    padding: 10px 15px;
-    border-radius: 20px;
-    background-color: white;
-    border: 5px solid black;
-    color: black;;
-    transition: all 0.3s ease
-  }
+ul :hover {
+  transform: scale(1.4); /* Zoom*/
+  z-index: 10;
+  position: relative;
+}
 
-  #houseSorting{
-    width: 200px;
-    padding: 10px 15px;
-    border-radius: 20px;
-    background-color: white;
-    border: 5px solid black;
-    color: black;;
-    transition: all 0.3s ease
-  }
+#searchResult li {
+  border: 1px solid #e6af2e;
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+#searchResult img {
+  max-width: 150px;
+  height: auto;
+  margin: 10px 0;
+}
+
+#sortOrder {
+  width: 90px;
+  padding: 10px 15px;
+  border-radius: 20px;
+  background-color: #ececec;
+  color: #282f44;
+  transition: all 0.3s ease;
+}
+
+#sortOrder:hover {
+  color: #48557a;
+}
+
+
+#houseSorting {
+  width: 200px;
+  padding: 10px 15px;
+  border-radius: 20px;
+  background-color: #ececec;
+  color: #282f44;
+  transition: all 0.3s ease;
+}
+
+#houseSorting:hover {
+  color: #48557a;
+}
+
+p {
+  font-family: "borel", cursive;
+  font-size: 14px;
+  color: #ececec;
+}
+
+#pie-graph{
+  background-color: #e6af2e;
+  width: 150px;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
