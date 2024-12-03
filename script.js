@@ -209,7 +209,7 @@ ReducioBtn.addEventListener("mouseover", retrecirObject);
 //fonction pour remettre le livre à sa taille initiale
 function tailleNormal() {
   const reduire = document.getElementById("livre");//je stock le livre dans reduire 
-  reduire.classList.remove("book");//retirer book pour mettre le livre à sa taille normal
+  reduire.classList.remove("book");//retirer class book pour mettre le livre à sa taille normal
 }
 
 ReducioBtn.addEventListener("mouseout", tailleNormal);
