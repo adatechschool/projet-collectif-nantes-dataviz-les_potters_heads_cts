@@ -28,7 +28,7 @@ function showDate() {
   //let h = date.getHours();
   let m = date.getMinutes();
   let s = date.getSeconds();
-  //if( h < 10 ){ h = '0' + h; }
+
   if (m < 10) {
     m = "0" + m;
   }
@@ -42,25 +42,25 @@ showDate();
 
 setInterval(showDate, 1000); //setInterval mai à jour la function showDate()tous les seconds
 
-function hiddenItems(){
-document.getElementById("boutons-sorts").style.visibility = 'hidden';
-document.querySelector("footer").style.visibility='hidden';
-document.querySelector("header").style.visibility= 'hidden';
+function hiddenItems() {
+  document.getElementById("boutons-sorts").style.visibility = "hidden";
+  document.querySelector("footer").style.visibility = "hidden";
+  document.querySelector("header").style.visibility = "hidden";
 }
 hiddenItems();
 
 function displayItems() {
   document.body.style.backgroundColor = "#282F44";
   document.querySelector("h1").style.color = "black";
-  document.querySelector("footer").style.visibility='visible';
-  document.querySelector("header").style.visibility= 'visible';
-  document.getElementById("boutons-sorts").style.visibility = 'visible';
-
+  document.querySelector("footer").style.visibility = "visible";
+  document.querySelector("header").style.visibility = "visible";
+  document.getElementById("boutons-sorts").style.visibility = "visible";
 }
 document.addEventListener("click", displayItems);
 
 //faire apparaitre les sorts en fonction du temps
 async function fetchSpells() {
+  console.log(fetchSpells);
   try {
     const response = await fetch("./spells.json");
     const data = await response.json();
@@ -180,12 +180,11 @@ document.getElementById("Geminio").addEventListener("mouseout", () => {
   });
 });
 
-
 //fonction pour faire grossir l'objet
-function growObject () {
-  const growth = document.getElementById('chaudron')
-    growth.classList.add("cauldron")
-  }
+function growObject() {
+  const growth = document.getElementById("chaudron");
+  growth.classList.add("cauldron");
+}
 
 document.getElementById("Engorgio").addEventListener("mouseover", growObject);
 
@@ -194,7 +193,6 @@ function shrinkObject() {
   const growth = document.getElementById("chaudron");
   growth.classList.remove("cauldron"); // Supprime la classe pour revenir à l'état initial
 }
-
 
 document.getElementById("Engorgio").addEventListener("mouseout", shrinkObject);
  
@@ -212,16 +210,33 @@ function lightOut() {
 }
 
 document.getElementById("Lumos").addEventListener("mouseover", lightIn);
-document.getElementById("Lumos").addEventListener("mouseout", lightOut);
+
+//fonction pour rétrécir Object le livre
+function retrecirObject() {
+  const reduire = document.getElementById("livre");//je stock le livre dans reduire
+
+  reduire.classList.add("book");//sa ajoute book qui à 50px en css pour reduire visuelement  
+}
+//ecouter le survol de la souris sur le bouton ReductioBtn et appliqur la fonction, retrecirObject
+ReducioBtn.addEventListener("mouseover", retrecirObject);
+
+//fonction pour remettre le livre à sa taille initiale
+function tailleNormal() {
+  const reduire = document.getElementById("livre");//je stock le livre dans reduire 
+  reduire.classList.remove("book");//retirer book pour mettre le livre à sa taille normal
+}
+
+ReducioBtn.addEventListener("mouseout", tailleNormal);
+
 
 // fonction pour Finite Incantente: bouton qui fait disparaitre tout les autres boutons:
-function finiteIncantente(){
+function finiteIncantente() {
   FiniteIncantatemBtn.addEventListener("mouseover", () => {
     hiddenItems();
     setTimeout(() => {
       displayItems();
     }, 2000);
-  })
+  });
 }
 finiteIncantente();
 
@@ -267,16 +282,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const images = document.querySelectorAll("img"); // Sélectionne tous les paragraphes
 
   // Cacher tous les paragraphes au départ
-  images.forEach(image => image.classList.remove("buttons"));
+  images.forEach((image) => image.classList.remove("buttons"));
 
   // Affiche les paragraphes au survol du bouton
   button.addEventListener("mouseover", function () {
-    images.forEach(image => image.classList.add("buttons"));
+    images.forEach((image) => image.classList.add("buttons"));
   });
 
   // Cache les paragraphes quand la souris quitte le bouton
   button.addEventListener("mouseout", function () {
-    images.forEach(image => image.classList.remove("buttons"));
+    images.forEach((image) => image.classList.remove("buttons"));
   });
 });
-

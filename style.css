@@ -37,7 +37,9 @@ body {
 body.borel-regular {
   color: #ececec;
 }
-
+p{
+  display: none;
+}
 header {
   display: flex;
   justify-content: space-between; /* Distribue les éléments */
@@ -66,6 +68,10 @@ h1 {
   display: flex;
   flex: 1;
   justify-content: center;
+}
+
+p {
+  display: none;
 }
 
 .horloge {
@@ -351,7 +357,9 @@ footer {
 .cauldron {
   transform: scale(1.5);
 }
-
+.book{
+  height:50px ;
+}
 /* Conteneur positionné */
 #lumos-container {
   width: 150px;
