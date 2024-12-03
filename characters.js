@@ -153,3 +153,4 @@ containerBouton.style.display= "block";
   
   }
   boutonGraph.addEventListener("click",displayGraph)
+  filtragePersonnages()
