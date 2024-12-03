@@ -144,12 +144,21 @@ function NbPersonnageParMaison() {
   };
 }
 //fonction pour afficher le graph et cacher les personnages:
-const boutonGraph= document.getElementById("pie-graph")
-function displayGraph(){
-  const affichage = document.getElementById("searchResult")
+const boutonGraph = document.getElementById("pie-graph");
+
+function toggleDisplay() {
+  const affichage = document.getElementById("searchResult");
   const containerBouton = document.getElementById("container-graph");
-  affichage.style.display= "none";
-containerBouton.style.display= "block";
   
+  if (affichage.style.display === "none") {
+    affichage.style.display = "block";
+    containerBouton.style.display = "none";
+    boutonGraph.textContent = "Characters"; // Change le texte du bouton pour indiquer l'état de basculement
+  } else {
+    affichage.style.display = "none";
+    containerBouton.style.display = "flex"; // Changez en "flex" pour s'assurer que le conteneur utilise flexbox
+    boutonGraph.textContent = "Graph"; // Change le texte du bouton pour indiquer l'état de basculement
   }
-  boutonGraph.addEventListener("click",displayGraph)
+}
+
+boutonGraph.addEventListener("click", toggleDisplay);
