@@ -64,8 +64,7 @@ async function fetchSpells() {
   try {
     const response = await fetch("./spells.json");
     const data = await response.json();
-    //console.log(data)
-    console.log(data[2].description);
+    
     //ajouter les noms des sorts dans leurs bouttons html
     AguamentiBtn.innerHTML = data[0].name;
     BombardoBtn.innerHTML = data[2].name;
@@ -196,6 +195,22 @@ function shrinkObject() {
 }
 
 document.getElementById("Engorgio").addEventListener("mouseout", shrinkObject);
+ 
+ 
+// Fonction pour activer la lumière
+function lightIn() {
+  const light = document.getElementById("lumos-container");
+  light.style.display = "flex"; // Afficher le conteneur
+}
+
+// Fonction pour éteindre la lumière
+function lightOut() {
+  const light = document.getElementById("lumos-container");
+  light.style.display = "none"; // Cacher le conteneur
+}
+
+document.getElementById("Lumos").addEventListener("mouseover", lightIn);
+document.getElementById("Lumos").addEventListener("mouseout", lightOut);
 
 //fonction pour rétrécir Object le livre
 function retrecirObject() {
@@ -214,21 +229,7 @@ function tailleNormal() {
 
 ReducioBtn.addEventListener("mouseout", tailleNormal);
 
-//fonction pour activer la lumière
-function lightIn() {
-  const light = document.getElementById("lumos-container");
-  light.classList.remove("active");
-}
 
-document.getElementById("Lumos").addEventListener("mouseover", lightIn);
-
-//fonction pour éteindre la lumière
-function lightOut() {
-  const light = document.getElementById("lumos-container");
-  light.classList.add("active");
-}
-
-document.getElementById("Lumos").addEventListener("mouseout", lightOut);
 // fonction pour Finite Incantente: bouton qui fait disparaitre tout les autres boutons:
 function finiteIncantente() {
   FiniteIncantatemBtn.addEventListener("mouseover", () => {
@@ -241,23 +242,41 @@ function finiteIncantente() {
 finiteIncantente();
 
 document.addEventListener("DOMContentLoaded", function () {
-  const button = document.getElementById("Aparecium");
-  const messages = document.querySelectorAll("p"); // Sélectionne tous les paragraphes
-  // Cacher tous les paragraphes au départ
-  messages.forEach((message) => message.classList.remove("active"));
+  const apareciumButton = document.getElementById("Aparecium");
+  const messages = document.querySelectorAll("p.message"); // Sélectionne tous les paragraphes avec la classe 'message'
 
   // Cacher tous les paragraphes au départ
+  messages.forEach(message => {
+    message.classList.remove("message-active");
+    message.style.display = 'none'; // Assurez-vous qu'ils sont cachés
+    message.style.opacity = 0; // Initialement invisible
+  });
 
   // Affiche les paragraphes au survol du bouton
-  button.addEventListener("mouseover", function () {
-    messages.forEach((message) => message.classList.add("active"));
+  apareciumButton.addEventListener("mouseover", function () {
+    messages.forEach(message => {
+      message.classList.add("message-active");
+      message.style.display = 'block'; // Affiche le paragraphe
+      setTimeout(() => { // Attendre une petite durée avant de rendre visible
+        message.style.opacity = 1; // Rendre visible
+      }, 10); // Délai en ms
+    });
   });
 
   // Cache les paragraphes quand la souris quitte le bouton
-  button.addEventListener("mouseout", function () {
-    messages.forEach((message) => message.classList.remove("active"));
+  apareciumButton.addEventListener("mouseout", function () {
+    messages.forEach(message => {
+      message.style.opacity = 0; // Rendre invisible
+      setTimeout(() => { // Attendre la fin de la transition pour cacher complètement
+        message.style.display = 'none';
+        message.classList.remove("message-active");
+      }, 500); // Durée de la transition en ms
+    });
   });
 });
+
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const button = document.getElementById("Evanesco");
