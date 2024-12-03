@@ -39,7 +39,7 @@ function filtragePersonnages() {
   let affichage = "<ul>";
   for (let personnage of personnagesFiltres) {
     affichage += `<li>
-                  <strong>${personnage.fullName}</strong>
+                  <h3><strong>${personnage.fullName}</strong></h3>
                   <p>Maison : ${personnage.hogwartsHouse}</p>
                   <p> Actor: ${personnage.interpretedBy}</p>
                   <img src="${personnage.image}" alt="${personnage.fullName}">

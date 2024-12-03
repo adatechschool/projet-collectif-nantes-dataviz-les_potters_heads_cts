@@ -95,6 +95,7 @@ p {
 #background-inondation.inondation {
   transform: scaleY(1);
 }
+
 .wave {
   position: absolute;
   bottom: 0;
@@ -104,6 +105,7 @@ p {
   background: rgba(81, 203, 238, 0.5);
   animation: wave 5s infinite alternate;
 }
+
 @keyframes wave {
   0% {
     transform: scaleX(0.9);
@@ -133,6 +135,7 @@ p {
   animation: explode 0.7s ease-out;
   z-index: 10;
 }
+
 @keyframes explode {
   0% {
     transform: scale(0);
@@ -146,6 +149,7 @@ p {
     opacity: 0;
   }
 }
+
 /* Variables pour l'animation du feu */
 :root {
   --fire-color: rgb(255, 80, 0);
@@ -444,6 +448,7 @@ p {
   font-family: "Borel", cursive;
   text-align: center;
 }
+
 p.message {
   opacity: 0; /* Par défaut invisible */
   display: block; /* Toujours réserver l'espace */
