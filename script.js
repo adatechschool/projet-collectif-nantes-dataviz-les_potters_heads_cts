@@ -1,14 +1,4 @@
 const spellElement = document.getElementById("sortileges");
-const AguamentiBtn = document.getElementById("Aguamenti");
-const BombardoBtn = document.getElementById("Bombardo");
-const IncendioBtn = document.getElementById("Incendio");
-const GeminioBtn = document.getElementById("Geminio");
-const ApareciumBtn = document.getElementById("Aparecium");
-const ReducioBtn = document.getElementById("Reducio");
-const EvanescoBtn = document.getElementById("Evanesco");
-const FiniteIncantatemBtn = document.getElementById("Finite-incantatem");
-const EngorgioBtn = document.getElementById("Engorgio");
-const LumosBtn = document.getElementById("Lumos");
 const backgroundInondation = document.getElementById("background-inondation");
 const container = document.getElementById("container");
 const GeminioDescription = document.getElementById("duplicatesObject");
@@ -66,16 +56,16 @@ async function fetchSpells() {
     const data = await response.json();
     
     //ajouter les noms des sorts dans leurs bouttons html
-    AguamentiBtn.innerHTML = data[0].name;
-    BombardoBtn.innerHTML = data[2].name;
-    IncendioBtn.innerHTML = data[7].name;
-    GeminioBtn.innerHTML = data[6].name;
-    ApareciumBtn.innerHTML = data[1].name;
-    ReducioBtn.innerHTML = data[9].name;
-    EvanescoBtn.innerHTML = data[4].name;
-    FiniteIncantatemBtn.innerHTML = data[5].name;
-    EngorgioBtn.innerHTML = data[3].name;
-    LumosBtn.innerHTML = data[8].name;
+    document.getElementById("Aguamenti").innerHTML = data[0].name;
+    document.getElementById("Bombardo").innerHTML = data[2].name;
+    document.getElementById("Incendio").innerHTML = data[7].name;
+    document.getElementById("Geminio").innerHTML = data[6].name;
+    document.getElementById("Aparecium").innerHTML = data[1].name;
+    document.getElementById("Reducio").innerHTML = data[9].name;
+    document.getElementById("Evanesco").innerHTML = data[4].name;
+    document.getElementById("Finite-incantatem").innerHTML = data[5].name;
+    document.getElementById("Engorgio").innerHTML = data[3].name;
+    document.getElementById("Lumos").innerHTML = data[8].name;
 
     //Ajouter descption au paragraphe descrptif de chaque bouton:
     AguamentiDescription.innerHTML = data[0].description;
@@ -98,6 +88,7 @@ fetchSpells();
 
 // fonction pour inondation suite au click sur Aguamenti button:
 function inondation() {
+  const AguamentiBtn = document.getElementById("Aguamenti");
   AguamentiBtn.addEventListener("mouseover", () => {
     // Ajoute la classe pour déclencher l'animation de remplissage
     backgroundInondation.classList.add("inondation");
@@ -117,6 +108,7 @@ inondation();
 //fonction pour effet explosion bombe suite au click sur Bombardo button:
 
 function bombe() {
+  const BombardoBtn = document.getElementById("Bombardo");
   BombardoBtn.addEventListener("mouseover", () => {
     // Créer l'élément d'explosion
     const explosion = document.createElement("div");
@@ -135,6 +127,7 @@ bombe();
 
 //fonction pour effet incendie suite au click sur Incendio button:
 function incendie() {
+  const IncendioBtn = document.getElementById("Incendio");
   IncendioBtn.addEventListener("mouseover", () => {
     const fire = document.getElementById("fire");
     const particulesCount = 50;
@@ -152,9 +145,9 @@ function incendie() {
   });
 }
 incendie();
-
+//fonction pour dupliquer la bougie:
 function dupliquerObjets() {
-  //dupliquerDesObjects
+  
 
   for (let i = 0; i < 1; i++) {
     const img = document.createElement("img");
@@ -213,6 +206,7 @@ document.getElementById("Lumos").addEventListener("mouseover", lightIn);
 document.getElementById("Lumos").addEventListener("mouseout", lightOut);
 
 //fonction pour rétrécir Object le livre
+const ReducioBtn = document.getElementById("Reducio");
 function retrecirObject() {
   const reduire = document.getElementById("livre");//je stock le livre dans reduire
 
@@ -232,6 +226,7 @@ ReducioBtn.addEventListener("mouseout", tailleNormal);
 
 // fonction pour Finite Incantente: bouton qui fait disparaitre tout les autres boutons:
 function finiteIncantente() {
+  const FiniteIncantatemBtn = document.getElementById("Finite-incantatem");
   FiniteIncantatemBtn.addEventListener("mouseover", () => {
     hiddenItems();
     setTimeout(() => {
