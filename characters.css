@@ -46,7 +46,7 @@ h1 {
 }
 
 h2 {
-  padding: 2vh;
+  padding: 4vh;
 }
 
 h3 {
@@ -182,4 +182,5 @@ p {
 
 #container-graph {
   display : none;
+  padding-top: 5vh;
 }
