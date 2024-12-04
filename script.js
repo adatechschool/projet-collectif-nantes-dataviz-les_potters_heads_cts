@@ -54,7 +54,7 @@ async function fetchSpells() {
   try {
     const response = await fetch("./spells.json");
     const data = await response.json();
-    
+
     //ajouter les noms des sorts dans leurs bouttons html
     document.getElementById("Aguamenti").innerHTML = data[0].name;
     document.getElementById("Bombardo").innerHTML = data[2].name;
@@ -147,8 +147,6 @@ function incendie() {
 incendie();
 //fonction pour dupliquer la bougie:
 function dupliquerObjets() {
-  
-
   for (let i = 0; i < 1; i++) {
     const img = document.createElement("img");
     img.src = "./images/bougie.png";
@@ -188,8 +186,7 @@ function shrinkObject() {
 }
 
 document.getElementById("Engorgio").addEventListener("mouseout", shrinkObject);
- 
- 
+
 // Fonction pour activer la lumière
 function lightIn() {
   const light = document.getElementById("lumos-container");
@@ -208,21 +205,20 @@ document.getElementById("Lumos").addEventListener("mouseout", lightOut);
 //fonction pour rétrécir Object le livre
 const ReducioBtn = document.getElementById("Reducio");
 function retrecirObject() {
-  const reduire = document.getElementById("livre");//je stock le livre dans reduire
+  const reduire = document.getElementById("livre"); //je stock le livre dans reduire
 
-  reduire.classList.add("book");//sa ajoute book qui à 50px en css pour reduire visuelement  
+  reduire.classList.add("book"); //sa ajoute book qui à 50px en css pour reduire visuelement
 }
 //ecouter le survol de la souris sur le bouton ReductioBtn et appliqur la fonction, retrecirObject
 ReducioBtn.addEventListener("mouseover", retrecirObject);
 
 //fonction pour remettre le livre à sa taille initiale
 function tailleNormal() {
-  const reduire = document.getElementById("livre");//je stock le livre dans reduire 
-  reduire.classList.remove("book");//retirer book pour mettre le livre à sa taille normal
+  const reduire = document.getElementById("livre"); //je stock le livre dans reduire
+  reduire.classList.remove("book"); //retirer book pour mettre le livre à sa taille normal
 }
 
 ReducioBtn.addEventListener("mouseout", tailleNormal);
-
 
 // fonction pour Finite Incantente: bouton qui fait disparaitre tout les autres boutons:
 function finiteIncantente() {
@@ -241,18 +237,19 @@ document.addEventListener("DOMContentLoaded", function () {
   const messages = document.querySelectorAll("p.message"); // Sélectionne tous les paragraphes avec la classe 'message'
 
   // Cacher tous les paragraphes au départ
-  messages.forEach(message => {
+  messages.forEach((message) => {
     message.classList.remove("message-active");
-    message.style.display = 'none'; // Assurez-vous qu'ils sont cachés
+    message.style.display = "none"; // Assurez-vous qu'ils sont cachés
     message.style.opacity = 0; // Initialement invisible
   });
 
   // Affiche les paragraphes au survol du bouton
   apareciumButton.addEventListener("mouseover", function () {
-    messages.forEach(message => {
+    messages.forEach((message) => {
       message.classList.add("message-active");
-      message.style.display = 'block'; // Affiche le paragraphe
-      setTimeout(() => { // Attendre une petite durée avant de rendre visible
+      message.style.display = "block"; // Affiche le paragraphe
+      setTimeout(() => {
+        // Attendre une petite durée avant de rendre visible
         message.style.opacity = 1; // Rendre visible
       }, 10); // Délai en ms
     });
@@ -260,18 +257,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Cache les paragraphes quand la souris quitte le bouton
   apareciumButton.addEventListener("mouseout", function () {
-    messages.forEach(message => {
+    messages.forEach((message) => {
       message.style.opacity = 0; // Rendre invisible
-      setTimeout(() => { // Attendre la fin de la transition pour cacher complètement
-        message.style.display = 'none';
+      setTimeout(() => {
+        // Attendre la fin de la transition pour cacher complètement
+        message.style.display = "none";
         message.classList.remove("message-active");
       }, 500); // Durée de la transition en ms
     });
   });
 });
-
-
-
 
 document.addEventListener("DOMContentLoaded", function () {
   const button = document.getElementById("Evanesco");
@@ -290,4 +285,3 @@ document.addEventListener("DOMContentLoaded", function () {
     images.forEach((image) => image.classList.remove("buttons"));
   });
 });
-
