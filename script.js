@@ -1,14 +1,4 @@
 const spellElement = document.getElementById("sortileges");
-const AguamentiBtn = document.getElementById("Aguamenti");
-const BombardoBtn = document.getElementById("Bombardo");
-const IncendioBtn = document.getElementById("Incendio");
-const GeminioBtn = document.getElementById("Geminio");
-const ApareciumBtn = document.getElementById("Aparecium");
-const ReducioBtn = document.getElementById("Reducio");
-const EvanescoBtn = document.getElementById("Evanesco");
-const FiniteIncantatemBtn = document.getElementById("Finite-incantatem");
-const EngorgioBtn = document.getElementById("Engorgio");
-const LumosBtn = document.getElementById("Lumos");
 const backgroundInondation = document.getElementById("background-inondation");
 const container = document.getElementById("container");
 const GeminioDescription = document.getElementById("duplicatesObject");
@@ -64,18 +54,18 @@ async function fetchSpells() {
   try {
     const response = await fetch("./spells.json");
     const data = await response.json();
-    
+
     //ajouter les noms des sorts dans leurs bouttons html
-    AguamentiBtn.innerHTML = data[0].name;
-    BombardoBtn.innerHTML = data[2].name;
-    IncendioBtn.innerHTML = data[7].name;
-    GeminioBtn.innerHTML = data[6].name;
-    ApareciumBtn.innerHTML = data[1].name;
-    ReducioBtn.innerHTML = data[9].name;
-    EvanescoBtn.innerHTML = data[4].name;
-    FiniteIncantatemBtn.innerHTML = data[5].name;
-    EngorgioBtn.innerHTML = data[3].name;
-    LumosBtn.innerHTML = data[8].name;
+    document.getElementById("Aguamenti").innerHTML = data[0].name;
+    document.getElementById("Bombardo").innerHTML = data[2].name;
+    document.getElementById("Incendio").innerHTML = data[7].name;
+    document.getElementById("Geminio").innerHTML = data[6].name;
+    document.getElementById("Aparecium").innerHTML = data[1].name;
+    document.getElementById("Reducio").innerHTML = data[9].name;
+    document.getElementById("Evanesco").innerHTML = data[4].name;
+    document.getElementById("Finite-incantatem").innerHTML = data[5].name;
+    document.getElementById("Engorgio").innerHTML = data[3].name;
+    document.getElementById("Lumos").innerHTML = data[8].name;
 
     //Ajouter descption au paragraphe descrptif de chaque bouton:
     AguamentiDescription.innerHTML = data[0].description;
@@ -98,6 +88,7 @@ fetchSpells();
 
 // fonction pour inondation suite au click sur Aguamenti button:
 function inondation() {
+  const AguamentiBtn = document.getElementById("Aguamenti");
   AguamentiBtn.addEventListener("mouseover", () => {
     // Ajoute la classe pour déclencher l'animation de remplissage
     backgroundInondation.classList.add("inondation");
@@ -117,6 +108,7 @@ inondation();
 //fonction pour effet explosion bombe suite au click sur Bombardo button:
 
 function bombe() {
+  const BombardoBtn = document.getElementById("Bombardo");
   BombardoBtn.addEventListener("mouseover", () => {
     // Créer l'élément d'explosion
     const explosion = document.createElement("div");
@@ -135,6 +127,7 @@ bombe();
 
 //fonction pour effet incendie suite au click sur Incendio button:
 function incendie() {
+  const IncendioBtn = document.getElementById("Incendio");
   IncendioBtn.addEventListener("mouseover", () => {
     const fire = document.getElementById("fire");
     const particulesCount = 50;
@@ -152,10 +145,8 @@ function incendie() {
   });
 }
 incendie();
-
+//fonction pour dupliquer la bougie:
 function dupliquerObjets() {
-  //dupliquerDesObjects
-
   for (let i = 0; i < 1; i++) {
     const img = document.createElement("img");
     img.src = "./images/bougie.png";
@@ -195,8 +186,7 @@ function shrinkObject() {
 }
 
 document.getElementById("Engorgio").addEventListener("mouseout", shrinkObject);
- 
- 
+
 // Fonction pour activer la lumière
 function lightIn() {
   const light = document.getElementById("lumos-container");
@@ -213,25 +203,26 @@ document.getElementById("Lumos").addEventListener("mouseover", lightIn);
 document.getElementById("Lumos").addEventListener("mouseout", lightOut);
 
 //fonction pour rétrécir Object le livre
+const ReducioBtn = document.getElementById("Reducio");
 function retrecirObject() {
-  const reduire = document.getElementById("livre");//je stock le livre dans reduire
+  const reduire = document.getElementById("livre"); //je stock le livre dans reduire
 
-  reduire.classList.add("book");//sa ajoute book qui à 50px en css pour reduire visuelement  
+  reduire.classList.add("book"); //sa ajoute book qui à 50px en css pour reduire visuelement
 }
 //ecouter le survol de la souris sur le bouton ReductioBtn et appliqur la fonction, retrecirObject
 ReducioBtn.addEventListener("mouseover", retrecirObject);
 
 //fonction pour remettre le livre à sa taille initiale
 function tailleNormal() {
-  const reduire = document.getElementById("livre");//je stock le livre dans reduire 
-  reduire.classList.remove("book");//retirer book pour mettre le livre à sa taille normal
+  const reduire = document.getElementById("livre"); //je stock le livre dans reduire
+  reduire.classList.remove("book"); //retirer book pour mettre le livre à sa taille normal
 }
 
 ReducioBtn.addEventListener("mouseout", tailleNormal);
 
-
 // fonction pour Finite Incantente: bouton qui fait disparaitre tout les autres boutons:
 function finiteIncantente() {
+  const FiniteIncantatemBtn = document.getElementById("Finite-incantatem");
   FiniteIncantatemBtn.addEventListener("mouseover", () => {
     hiddenItems();
     setTimeout(() => {
@@ -246,18 +237,19 @@ document.addEventListener("DOMContentLoaded", function () {
   const messages = document.querySelectorAll("p.message"); // Sélectionne tous les paragraphes avec la classe 'message'
 
   // Cacher tous les paragraphes au départ
-  messages.forEach(message => {
+  messages.forEach((message) => {
     message.classList.remove("message-active");
-    message.style.display = 'none'; // Assurez-vous qu'ils sont cachés
+    message.style.display = "none"; // Assurez-vous qu'ils sont cachés
     message.style.opacity = 0; // Initialement invisible
   });
 
   // Affiche les paragraphes au survol du bouton
   apareciumButton.addEventListener("mouseover", function () {
-    messages.forEach(message => {
+    messages.forEach((message) => {
       message.classList.add("message-active");
-      message.style.display = 'block'; // Affiche le paragraphe
-      setTimeout(() => { // Attendre une petite durée avant de rendre visible
+      message.style.display = "block"; // Affiche le paragraphe
+      setTimeout(() => {
+        // Attendre une petite durée avant de rendre visible
         message.style.opacity = 1; // Rendre visible
       }, 10); // Délai en ms
     });
@@ -265,18 +257,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Cache les paragraphes quand la souris quitte le bouton
   apareciumButton.addEventListener("mouseout", function () {
-    messages.forEach(message => {
+    messages.forEach((message) => {
       message.style.opacity = 0; // Rendre invisible
-      setTimeout(() => { // Attendre la fin de la transition pour cacher complètement
-        message.style.display = 'none';
+      setTimeout(() => {
+        // Attendre la fin de la transition pour cacher complètement
+        message.style.display = "none";
         message.classList.remove("message-active");
       }, 500); // Durée de la transition en ms
     });
   });
 });
-
-
-
 
 document.addEventListener("DOMContentLoaded", function () {
   const button = document.getElementById("Evanesco");
@@ -285,14 +275,11 @@ document.addEventListener("DOMContentLoaded", function () {
   // Cacher tous les paragraphes au départ
   images.forEach((image) => image.classList.remove("buttons"));
 
-  // Affiche les paragraphes au survol du bouton
+  // Affiche les paragraphes au survol du bouton + Cache les paragraphes au bout de 1 seconde
   button.addEventListener("mouseover", function () {
     images.forEach((image) => image.classList.add("buttons"));
-  });
-
-  // Cache les paragraphes quand la souris quitte le bouton
-  button.addEventListener("mouseout", function () {
-    images.forEach((image) => image.classList.remove("buttons"));
+    setTimeout(() => {
+      images.forEach((image) => image.classList.remove("buttons"));
+      }, 1000);
   });
 });
-
