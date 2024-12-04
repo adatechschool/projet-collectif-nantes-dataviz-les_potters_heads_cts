@@ -179,8 +179,27 @@ p {
   margin: 0 auto;
 }
 
-
 #container-graph {
-  display : none;
+  display: none;
   padding-top: 5vh;
+}
+
+#btn-precedent {
+  width: 12vw; /* Les boutons s'ajustent à la cellule */
+  background-color: #282f44;
+  color: #ececec;
+  border: 1px solid #e6af2e;
+  border-radius: 15px;
+  font-family: "HARRYP";
+  font-size: 30px;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+btn-precedent:hover {
+  background-color: #353e5a;
 }

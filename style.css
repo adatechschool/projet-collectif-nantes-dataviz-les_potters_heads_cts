@@ -364,7 +364,7 @@ footer {
   transform: scale(1.5);
 }
 
-.book{
+.book {
   transform: scale(0.6);
 }
 
@@ -429,7 +429,6 @@ footer {
   display: none;
 }
 
-
 p {
   font-family: "borel", cursive;
   font-size: 14px;
@@ -458,4 +457,11 @@ p.message {
 
 p.message-active {
   opacity: 1; /* Visible lorsqu'ajouté */
+}
+
+#btn-suivant {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
 }

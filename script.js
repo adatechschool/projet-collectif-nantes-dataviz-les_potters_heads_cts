@@ -275,13 +275,11 @@ document.addEventListener("DOMContentLoaded", function () {
   // Cacher tous les paragraphes au départ
   images.forEach((image) => image.classList.remove("buttons"));
 
-  // Affiche les paragraphes au survol du bouton
+  // Affiche les paragraphes au survol du bouton + Cache les paragraphes au bout de 1 seconde
   button.addEventListener("mouseover", function () {
     images.forEach((image) => image.classList.add("buttons"));
-  });
-
-  // Cache les paragraphes quand la souris quitte le bouton
-  button.addEventListener("mouseout", function () {
-    images.forEach((image) => image.classList.remove("buttons"));
+    setTimeout(() => {
+      images.forEach((image) => image.classList.remove("buttons"));
+      }, 1000);
   });
 });
